@@ -1,0 +1,125 @@
+/* ページ全体のリセットや基本設定 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #FFFEF9; /* 白を基調とした背景 */
+}
+
+a {
+  color: inherit; /* リンクもテキストと同じ色に */
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7; /* ホバー時の変化 */
+}
+
+/* メインコンテンツのコンテナ */
+.App {
+  max-width: 85%; /* 全体の横幅を制限し中央揃え */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ヘッダーを全幅に広げるためのコンテナ */
+.headerContainer {
+  font-family: "Tinos", serif; /* お好みのフォント */
+  width: 100%;
+  position: sticky;  /* スクロール時に固定 */
+  top: 0;
+  z-index: 999;
+}
+
+.headerInner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.fadeInTop {
+  animation: fadeInTop 1s ease-out forwards;
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUpTarget {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.FontTinos {
+  font-family: "Tinos", serif;
+}
+
+.FontDMSerifText {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+}
+
+.heroInner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;             /* 横並び */
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;                 /* 左右要素の間隔 */
+}
+
+.heroImage {
+  max-width: 45%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 670px) {
+  .heroInner {
+    flex-direction: column;    /* 横並び → 縦並びへ */
+    gap: 1rem;                 /* 間隔を少し狭く */
+  }
+  
+  /* heroImage を全幅にするなどの調整 */
+  .heroImage {
+    max-width: 100%;
+  }
+
+  /* heroTitle のフォントサイズを少し小さくする例 */
+  /* 必要に応じてお好みで調整してください */
+  /*
+  .heroTitle {
+    font-size: 3rem;
+  }
+  */
+}
