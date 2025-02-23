@@ -1,0 +1,383 @@
+/* ページ全体のリセットや基本設定 */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #FFFEF9;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.7; /* ホバー時の変化 */
+}
+
+/* メインコンテンツのコンテナ */
+.App {
+  max-width: 90%; /* 全体の横幅を制限し中央揃え */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ヘッダーを全幅に広げるためのコンテナ */
+.headerContainer {
+  font-family: "Tinos", serif; /* お好みのフォント */
+  width: 100%;
+  position: sticky;  /* スクロール時に固定 */
+  top: 0;
+  z-index: 999;
+}
+
+.headerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* ===========================
+   フェードインアニメーション
+   =========================== */
+.fadeInTop {
+  animation: fadeInTop 1s ease-out forwards;
+}
+
+@keyframes fadeInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   フォント指定クラス
+   =========================== */
+.FontTinos {
+  font-family: "Tinos", serif;
+}
+
+.FontDMSerifText {
+  font-family: "DM Serif Text", serif;
+  font-weight: 400;
+}
+.FontTinos {
+  font-family: "Tinos", serif;
+}
+
+.FontZenKakuGothicNewText {
+  font-family: "Zen Kaku Gothic New", serif;
+  font-weight: 400;
+}
+
+/* ===========================
+   グローバルスタイル由来
+   (JavaScriptのstyleオブジェクトをCSSに変換)
+   =========================== */
+
+/* タイトルなど */
+.title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.nav {
+  display: flex;
+}
+.link {
+  color: #333;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* Heroセクション (写真を右、文字を左) */
+.heroSection {
+  width: 100%;
+  text-align: left; /* 左寄せを基本としつつ */
+  background-color: #fafafa;
+  margin-bottom: 2rem;
+  padding: 2.8rem 1rem; /* 上下左右の余白 */
+}
+.heroTextContainer {
+  flex: 1; /* テキストエリアが残りを埋める */
+}
+.heroSubtitle {
+  font-size: 1.0rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Hero内のレイアウト */
+.heroInner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;             
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;                 
+}
+.heroImage {
+  max-width: 45%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+.heroTitle {
+  font-size: 5rem;
+  margin: 0 0 1rem;
+}
+
+/* 画面幅670px以下でHeroを縦並びに */
+@media (max-width: 670px) {
+  .heroInner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .heroImage {
+    max-width: 100%;
+  }
+  .heroTitle {
+    font-size: 3rem;
+  }
+}
+
+/* セクション共通 */
+.section {
+  margin-bottom: 2rem;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.sectionTitle {
+  margin: 0;
+  font-size: 3.5rem;
+}
+.subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+.text {
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+.mailLink {
+  color: #0066cc;
+  text-decoration: underline;
+}
+.skillList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  line-height: 1.8;
+}
+.workItem {
+  margin-bottom: 2rem;
+}
+.workTitle {
+  font-size: 1.1rem;
+  margin: 1rem 0 0.5rem 0;
+  color: #333;
+}
+.workSubtitle {
+  color: #666;        /* 薄めのグレー */
+  font-size: 0.8rem;  /* 必要に応じて微調整 */
+  margin-top: 0.2rem; /* タイトルとの間隔 */
+}
+
+
+/* Worksで使う横並びと画像のスタイル */
+.worksRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.workItemContainer {
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  /* 3カラムを想定 (画面に応じて拡大縮小) */
+  flex: 1 1 calc(33.333% - 1rem);
+  box-sizing: border-box;
+}
+.workItemImage {
+  width: 100%;
+  height: 200px;  
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* 768px 以下 -> 2カラム */
+@media (max-width: 768px) {
+  .workItemContainer {
+    flex: 1 1 calc(50% - 1rem);
+  }
+}
+
+/* 480px 以下 -> 1カラム */
+@media (max-width: 480px) {
+  .workItemContainer {
+    flex: 1 1 100%;
+  }
+}
+
+.techSubheading {
+  font-size: 1.2rem;
+  margin-top: 2rem; /* 上下余白を付けたい場合 */
+  margin-bottom: 1rem;
+}
+
+.techIconsList {
+  display: flex;
+  flex-wrap: wrap;     /* 画面幅が狭いときは折り返し */
+  gap: 1rem;
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+/* アイコンとテキストを縦並びに */
+.techIconsList li {
+  display: flex;
+  flex-direction: column;  /* 縦方向に配置 */
+  align-items: center;     /* 中央寄せ */
+  gap: 0.5rem;            /* アイコンと文字の間隔 */
+  margin-right: 1rem;
+}
+
+.techIcon {
+  height: 30px;
+  object-fit: contain;
+  display: block;
+}
+
+.techSkillName {
+  color: #666;             /* 若干グレー */
+  font-family: "Arial", sans-serif; /* 好きなフォントに変更 */
+  font-size: 1rem;         /* 必要に応じてサイズ調整 */
+}
+
+.footer {
+  border-top: 1px solid #eee;
+  padding: 1rem;
+  text-align: center;
+  background-color: #2b2b2b;
+  margin-bottom: 1rem;
+}
+.footerLinks {
+  margin-bottom: 0.5rem;
+}
+.footerLink {
+  margin: 0 0.5rem;
+  color: #0066cc;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+.footerText {
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.pageLink {
+  text-decoration: underline;
+}
+.pageLink:hover {
+  opacity: 0.8;
+}
+
+.pagesApp {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.pagesTitle {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.pagesText {
+  line-height: 1.6;
+  font-size: 0.8rem;
+  margin: 0.4rem 0;
+  color: #666; /* 若干グレー */
+}
+.pagesImageWrapper {
+  text-align: center; /* 要素内のコンテンツを中央揃え */
+  margin: 2rem 0;     /* 上下の余白を適宜調整 */
+}
+.pagesImage {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px; /* 角丸などの装飾 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* お好みで影を付ける */
+}
+.pagesOutlineText {
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.0rem; /* お好みで調整 */
+  width: 90%; /* 横幅を固定 (適宜調整) */
+  margin: 2rem auto; /* 上下に余白を持たせつつ、中央配置 */
+  color: #333;
+}
+.pagesOverviewRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+.pagesSubTitle {
+  font-size: 1.0rem;
+  line-height: 1.4;
+  width: 150px;
+  font-weight: bold;
+}
+.pagesOverviewText {
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+}
+
+
+
+

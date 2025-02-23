@@ -1,15 +1,15 @@
 import React from 'react';
 import '../App.css';
 
-function PayViewPage() {
+function Portfolio() {
     return (
     <section className="section">
         <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="sectionTitle FontTinos pagesTitle">
-            PayView
+            Portfolio
             </h2>
-            <p className="subtitle">Web App</p>
+            <p className="subtitle">Web Site</p>
         </div>
 
         <p className="pagesText">
@@ -39,43 +39,33 @@ function PayViewPage() {
         
         <div className="pagesImageWrapper">
             <img
-            src="../PayView.png"
+            src="../Portfolio.png"
             className="pagesImage"
-            alt="PayView"
-            />
-        </div>
-        <div className="pagesImageWrapper">
-            <img
-            src="../PayView2.png"
-            className="pagesImage"
-            alt="PayView 2"
             />
         </div>
 
         <p className="pagesOutlineText FontZenKakuGothicNewText">
-        消費者向けのWebアプリで、現在地から利用可能な店舗を検索し、その店舗で使用できる決済サービスを事前に確認できる機能を備えている。
-        ユーザーは検索機能を利用して登録されているお店を調べることができ、さらに「食べログ」とは異なり、利用可能な決済サービスのボタンを押すことで、対応する決済アプリへ直接移動することが可能。
-        また、ユーザー自身が新たな店舗情報や決済サービスの対応状況を追加できる仕組みも備えている。
+            就職活動のために1人で開発しました。
         </p>
 
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">使用ツール・言語</p>
             <p className="pagesOverviewText">
-            Flask / Python / HTML / CSS / JavaScript / git
+            React / JavaScript / CSS
             </p>
         </div>
         
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">人数</p>
             <p className="pagesOverviewText">
-            4人
+            1人
             </p>
         </div>
         
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">制作期間</p>
             <p className="pagesOverviewText">
-            2023年10月〜2024年02月
+            2025年2月〜
             </p>
         </div>
         </div>
@@ -83,4 +73,4 @@ function PayViewPage() {
     );
 }
 
-export default PayViewPage;
+export default Portfolio;

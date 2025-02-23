@@ -1,23 +1,70 @@
 import React from 'react';
-import globalStyles from '../styles/globalStyles';
-import '../styles/App.css';
+import '../App.css';
 
 function Skills() {
     return (
-        <section id="skills" style={globalStyles.section}>
-        <div style={globalStyles.card} className="fadeInUpTarget">
-            <div style={globalStyles.titleContainer}>
-            <h2 style={globalStyles.sectionTitle} className="FontTinos">
-                Skills
+    <section id="skills" className="section">
+        <div className="titleContainer">
+            <h2 className="sectionTitle FontTinos">
+            Skills
             </h2>
-            <p style={globalStyles.subtitle}>技術スキル</p>
-            </div>
-            <ul style={globalStyles.skillList}>
-            <li><strong>プログラミング言語:</strong> Python, C#, JavaScript, Dart</li>
-            <li><strong>ツール/フレームワーク:</strong> Unity, Flask, React, Flutter, SQL, Git, Docker</li>
-            </ul>
+            <p className="subtitle">技術スキル</p>
         </div>
-        </section>
+
+        {/* プログラミング言語 */}
+        <h3 className="techSubheading">プログラミング言語</h3>
+        <ul className="skillList techIconsList">
+            <li>
+            <img src="python.png" alt="Python" className="techIcon" />
+            <span className="techSkillName">Python</span>
+            </li>
+            <li>
+            <img src="csharp.png" alt="C#" className="techIcon" />
+            <span className="techSkillName">C#</span>
+            </li>
+            <li>
+            <img src="js.png" alt="JavaScript" className="techIcon" />
+            <span className="techSkillName">JavaScript</span>
+            </li>
+            <li>
+            <img src="dart.png" alt="Dart" className="techIcon" />
+            <span className="techSkillName">Dart</span>
+            </li>
+        </ul>
+
+        {/* ツール/フレームワーク */}
+        <h3 className="techSubheading">ツール / フレームワーク</h3>
+        <ul className="skillList techIconsList">
+            <li>
+            <img src="unity.png" alt="Unity" className="techIcon" />
+            <span className="techSkillName">Unity</span>
+            </li>
+            <li>
+            <img src="flask.png" alt="Flask" className="techIcon" />
+            <span className="techSkillName">Flask</span>
+            </li>
+            <li>
+            <img src="react.png" alt="React" className="techIcon" />
+            <span className="techSkillName">React</span>
+            </li>
+            <li>
+            <img src="flutter.png" alt="Flutter" className="techIcon" />
+            <span className="techSkillName">Flutter</span>
+            </li>
+            <li>
+            <img src="postgresql.png" alt="PostgreSQL" className="techIcon" />
+            <span className="techSkillName">PostgreSQL</span>
+            </li>
+            <li>
+            <img src="git.png" alt="Git" className="techIcon" />
+            <span className="techSkillName">Git</span>
+            </li>
+            <li>
+            <img src="docker.png" alt="Docker" className="techIcon" />
+            <span className="techSkillName">Docker</span>
+            </li>
+        </ul>
+    </section>
     );
 }
 

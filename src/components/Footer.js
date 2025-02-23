@@ -1,17 +1,16 @@
 import React from 'react';
-import globalStyles from '../styles/globalStyles';
-import '../styles/App.css';
+import '../App.css';
 
 function Footer() {
     return (
-        <footer style={globalStyles.footer}>
-        <div style={globalStyles.footerLinks}>
-            <a href="#profile" style={globalStyles.footerLink}>profile</a>
-            <a href="#skills" style={globalStyles.footerLink}>skills</a>
-            <a href="#works" style={globalStyles.footerLink}>works</a>
-            <a href="#contact" style={globalStyles.footerLink}>contact</a>
+        <footer className="footer">
+        <div className="footerLinks">
+            <a href="#profile" className="footerLink">profile</a>
+            <a href="#skills" className="footerLink">skills</a>
+            <a href="#works" className="footerLink">works</a>
+            <a href="#contact" className="footerLink">contact</a>
         </div>
-        <div style={globalStyles.footerText}>
+        <div className="footerText">
             All Rights Reserved 2025 ©︎ Kouya Arakaki
         </div>
         </footer>

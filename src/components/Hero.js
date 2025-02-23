@@ -1,19 +1,17 @@
 import React from 'react';
-import globalStyles from '../styles/globalStyles';
-import '../styles/App.css';
+import '../App.css';
 
 function Hero() {
     return (
-        <section style={globalStyles.heroSection} className="fadeInUpTarget">
+        <section className="heroSection">
         <div className="heroInner">
-            {/* 左側のテキスト用コンテナ */}
-            <div style={globalStyles.heroTextContainer}>
-            <h1 style={globalStyles.heroTitle} className="FontDMSerifText">Welcome to Kouya Arakaki<br />Portfolio</h1>
-            <p style={globalStyles.heroSubtitle}>
-                Welcome to My Portfolio
+            <div className="heroTextContainer">
+            <h1 className="FontDMSerifText heroTitle">Welcome to Kouya Arakaki<br />Portfolio</h1>
+            <p className="heroSubtitle">
+                Software Engineer's Portfolio
             </p>
             </div>
-            <img src="Profile.jpg" className="heroImage" alt="Hero" />
+            <img src="Hero.jpg" className="heroImage" alt="Hero" />
         </div>
         </section>
     );

@@ -1,37 +1,22 @@
 // App.js
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './styles/App.css';
+import './App.css';
 import Layout from './components/Layout';
 import PayView from './pages/PayView';
 import Game611 from './pages/Game611';
+import Portfolio from './pages/Portfolio';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
-
-  // Intersection Observer のコードはそのまま
-  useEffect(() => {
-    const fadeInUpElements = document.querySelectorAll('.fadeInUpTarget');
-    const options = { root: null, rootMargin: '0px', threshold: 0.1 };
-
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fadeInUp'); 
-          obs.unobserve(entry.target);
-        }
-      });
-    }, options);
-
-    fadeInUpElements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />} />
-      <Route path="/works/payview" element={<PayView />} />
-      <Route path="/works/611-game" element={<Game611 />} />
+      <Route path="/works/payview" element={<><Header /><PayView /><Footer /></>} />
+      <Route path="/works/611-game" element={<><Header /><Game611 /><Footer /></>} />
+      <Route path="/works/Portfolio" element={<><Header /><Portfolio /><Footer /></>} />
     </Routes>
   );
 }

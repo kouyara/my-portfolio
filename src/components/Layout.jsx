@@ -7,21 +7,28 @@ import Skills from './Skills';
 import Profile from './Profile';
 import Contact from './Contact';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
 
 function Layout() {
     return (
-    <>
+        <>
         <Header />
         <Hero />
         <div className="App">
-        <Works />
-        <Skills />
-        <Profile />
-        <Contact />
+            <section id="works">
+            <Works />
+            </section>
+            <section id="skills">
+            <Skills />
+            </section>
+            <section id="profile">
+            <Profile />
+            </section>
+            <section id="contact">
+            <Contact />
+            </section>
         </div>
         <Footer />
-    </>
+        </>
 );
 }
 

@@ -1,21 +1,18 @@
 import React from 'react';
-import globalStyles from '../styles/globalStyles';
-import '../styles/App.css';
+import '../App.css';
 
 function Contact() {
     return (
-        <section id="contact" style={globalStyles.section}>
-        <div style={globalStyles.card} className="fadeInUpTarget">
-            <h2 style={globalStyles.sectionTitle} className="FontTinos">
+        <section id="contact" className="section">
+            <h2 className="sectionTitle FontTinos">
             Contact
             </h2>
-            <p style={globalStyles.text}>
+            <p className="text FontZenKakuGothicNewText">
             お問い合わせは以下のメールアドレスへお願いします。<br />
-            <a href="mailto:e215705@ie.u-ryukyu.ac.jp" style={globalStyles.mailLink}>
+            <a href="mailto:e215705@ie.u-ryukyu.ac.jp" className="mailLink">
                 e215705@ie.u-ryukyu.ac.jp
             </a>
             </p>
-        </div>
         </section>
     );
 }
