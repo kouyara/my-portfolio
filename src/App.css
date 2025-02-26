@@ -126,7 +126,7 @@ a:hover {
   text-align: left; /* 左寄せを基本としつつ */
   background-color: #fafafa;
   margin-bottom: 2rem;
-  padding: 2.8rem 1rem; /* 上下左右の余白 */
+  padding: 3rem 1rem; /* 上下左右の余白 */
 }
 .heroTextContainer {
   flex: 1; /* テキストエリアが残りを埋める */
@@ -219,9 +219,6 @@ a:hover {
   font-size: 0.8rem;  /* 必要に応じて微調整 */
   margin-top: 0.2rem; /* タイトルとの間隔 */
 }
-
-
-/* Worksで使う横並びと画像のスタイル */
 .worksRow {
   display: flex;
   flex-wrap: wrap;
@@ -229,23 +226,20 @@ a:hover {
 }
 .workItemContainer {
   display: block;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
   margin-bottom: 1.5rem;
   color: inherit;
   text-decoration: none;
-  /* 3カラムを想定 (画面に応じて拡大縮小) */
   flex: 1 1 calc(33.333% - 1rem);
   box-sizing: border-box;
 }
 .workItemImage {
   width: 100%;
-  height: 200px;  
-  object-fit: cover;
+  aspect-ratio: 16 / 9;   /* 横:縦の比率を指定 */
+  object-fit: contain;      /* 必要に応じて画像を切り抜く */
   border-radius: 8px;
   margin-bottom: 0.5rem;
   display: block;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* 768px 以下 -> 2カラム */
@@ -376,6 +370,12 @@ a:hover {
   color: #666;
   line-height: 1.6;
   flex: 1;
+}
+.pagesOtherWorksTitle {
+  font-weight: bold;
+  color: #333;
+  margin: 2rem 0 1rem; /* 上下の余白を適宜調整 */
+  font-size: 2rem;
 }
 
 

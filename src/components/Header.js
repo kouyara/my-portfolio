@@ -44,9 +44,12 @@ function Header() {
         <div className="headerInner">
         <Link 
             to="/" 
-            onClick={() => window.scrollTo(0, 0)}
+            onClick={() => {
+                window.scrollTo(0, 0);
+                window.location.reload();
+            }}
             className="title"
-        >
+            >
             Kouya Arakaki Portfolio
         </Link>
         <nav className="nav">
