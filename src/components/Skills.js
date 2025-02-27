@@ -5,13 +5,12 @@ function Skills() {
     return (
     <section id="skills" className="section">
         <div className="titleContainer">
-            <h2 className="sectionTitle FontTinos">
+            <h2 className="sectionTitle FontLibreBodoniText">
             Skills
             </h2>
             <p className="subtitle">技術スキル</p>
         </div>
 
-        {/* プログラミング言語 */}
         <h3 className="techSubheading">プログラミング言語</h3>
         <ul className="skillList techIconsList">
             <li>

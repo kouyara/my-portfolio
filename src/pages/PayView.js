@@ -7,7 +7,7 @@ function PayViewPage() {
     <section className="section">
         <div className="pagesApp">
         <div className="titleContainer">
-            <h2 className="sectionTitle FontTinos pagesTitle">
+            <h2 className="FontLibreBodoniText pagesTitle">
             PayView
             </h2>
             <p className="subtitle">Web App</p>
@@ -79,6 +79,8 @@ function PayViewPage() {
             2023年10月〜2024年02月
             </p>
         </div>
+
+        <p className="pagesOtherWorksTitle FontLibreBodoniText">Other Works</p>
 
         <div className="worksRow">
         <Link to="/works/payview" className="workItemContainer">

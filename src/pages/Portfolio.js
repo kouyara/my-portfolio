@@ -7,7 +7,7 @@ function Portfolio() {
     <section className="section">
         <div className="pagesApp">
         <div className="titleContainer">
-            <h2 className="sectionTitle FontTinos pagesTitle">
+            <h2 className="FontLibreBodoniText pagesTitle">
             Portfolio
             </h2>
             <p className="subtitle">Web Site</p>
@@ -69,6 +69,8 @@ function Portfolio() {
             2025年2月〜
             </p>
         </div>
+
+        <p className="pagesOtherWorksTitle FontLibreBodoniText">Other Works</p>
 
         <div className="worksRow">
         <Link to="/works/payview" className="workItemContainer">

@@ -19,13 +19,6 @@ a:hover {
   opacity: 0.7; /* ホバー時の変化 */
 }
 
-/* メインコンテンツのコンテナ */
-.App {
-  max-width: 90%; /* 全体の横幅を制限し中央揃え */
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
 /* ヘッダーを全幅に広げるためのコンテナ */
 .headerContainer {
   font-family: "Tinos", serif; /* お好みのフォント */
@@ -80,21 +73,12 @@ a:hover {
 /* ===========================
    フォント指定クラス
    =========================== */
-.FontTinos {
-  font-family: "Tinos", serif;
-}
-
-.FontDMSerifText {
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
-}
-.FontTinos {
-  font-family: "Tinos", serif;
-}
-
 .FontZenKakuGothicNewText {
   font-family: "Zen Kaku Gothic New", serif;
   font-weight: 400;
+}
+.FontLibreBodoniText {
+  font-family: "Libre Bodoni", serif;
 }
 
 /* ===========================
@@ -105,7 +89,8 @@ a:hover {
 /* タイトルなど */
 .title {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  color: #333;
   font-weight: bold;
 }
 .nav {
@@ -116,7 +101,7 @@ a:hover {
   margin-left: 1rem;
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -130,6 +115,7 @@ a:hover {
 }
 .heroTextContainer {
   flex: 1; /* テキストエリアが残りを埋める */
+  color: #333;
 }
 .heroSubtitle {
   font-size: 1.0rem;
@@ -153,7 +139,7 @@ a:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 .heroTitle {
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 0 0 1rem;
 }
 
@@ -171,20 +157,40 @@ a:hover {
   }
 }
 
-/* セクション共通 */
 .section {
-  margin-bottom: 2rem;
+  padding: 0rem 4rem 4rem 4rem;
 }
 
 .titleContainer {
+  position: relative; /* 疑似要素の位置を調整するため */
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
+.titleContainer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;           /* 必要に応じて調整 */
+  height: 1px;            /* アンダーラインの太さ */
+  width: 0;               /* 初期状態は幅0 */
+  background-color: #000; /* 黒色 */
+  animation: underlineAnimation 1s forwards; /* 1秒で全幅に広がる */
+}
+@keyframes underlineAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 .sectionTitle {
   margin: 0;
-  font-size: 3.5rem;
+  font-size: 4rem;
+  color: #333;
 }
 .subtitle {
   margin: 0;
@@ -241,8 +247,6 @@ a:hover {
   display: block;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
-
-/* 768px 以下 -> 2カラム */
 @media (max-width: 768px) {
   .workItemContainer {
     flex: 1 1 calc(50% - 1rem);
@@ -257,11 +261,9 @@ a:hover {
 }
 
 .techSubheading {
-  font-size: 1.2rem;
-  margin-top: 2rem; /* 上下余白を付けたい場合 */
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin: 2rem 0rem; /* 上下余白を付けたい場合 */
 }
-
 .techIconsList {
   display: flex;
   flex-wrap: wrap;     /* 画面幅が狭いときは折り返し */
@@ -270,8 +272,6 @@ a:hover {
   padding: 0;
   margin: 0;
 }
-
-/* アイコンとテキストを縦並びに */
 .techIconsList li {
   display: flex;
   flex-direction: column;  /* 縦方向に配置 */
@@ -279,17 +279,59 @@ a:hover {
   gap: 0.5rem;            /* アイコンと文字の間隔 */
   margin-right: 1rem;
 }
-
 .techIcon {
   height: 30px;
   object-fit: contain;
   display: block;
 }
-
 .techSkillName {
   color: #666;             /* 若干グレー */
   font-family: "Arial", sans-serif; /* 好きなフォントに変更 */
   font-size: 1rem;         /* 必要に応じてサイズ調整 */
+}
+
+.profileContentRow {
+  display: flex;
+  align-items: flex-start; /* 上端を揃える */
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.profileImageContainer {
+  flex: 0 0 auto;
+}
+.profileImage {
+  width: 250px;    /* 必要に応じて調整 */
+  height: auto;
+  border-radius: 3%;
+  object-fit: cover;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.profileTextContainer {
+  flex: 1;
+}
+.viewMoreContainer {
+  text-align: left;
+  margin-top: 1rem;
+}
+.viewMoreButton {
+  display: inline-block;
+  background: transparent;
+  color: #2b2b2b;
+  text-decoration: underline;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.viewMoreButton:hover {
+  background-color: #666;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.githubIcon {
+  width: 24px;   /* 適切なサイズに調整 */
+  height: 24px;
+  vertical-align: middle;
 }
 
 .footer {
@@ -319,15 +361,14 @@ a:hover {
 .pageLink:hover {
   opacity: 0.8;
 }
-
 .pagesApp {
   max-width: 90%;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 .pagesTitle {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  color: #333;
+  margin: 1rem 0rem;
 }
 .pagesText {
   line-height: 1.6;
@@ -372,12 +413,27 @@ a:hover {
   flex: 1;
 }
 .pagesOtherWorksTitle {
+  position: relative; /* 疑似要素を正しく配置するため */
   font-weight: bold;
   color: #333;
-  margin: 2rem 0 1rem; /* 上下の余白を適宜調整 */
-  font-size: 2rem;
+  margin: 5rem 0 3rem;
+  font-size: 2.5rem;
 }
-
-
-
-
+.pagesOtherWorksTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;           /* 必要に応じて調整 */
+  height: 1px;            /* アンダーラインの太さ */
+  width: 0;               /* 初期状態は幅0 */
+  background-color: #000; /* 黒色 */
+  animation: underlineAnimation 1s forwards; /* 1秒で全幅に広がる */
+}
+@keyframes underlineAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -7,7 +7,7 @@ function Game611() {
     <section className="section">
         <div className="pagesApp">
         <div className="titleContainer">
-            <h2 className="sectionTitle FontTinos pagesTitle">
+            <h2 className="FontLibreBodoniText pagesTitle">
             611 game
             </h2>
             <p className="subtitle">VR Game</p>
@@ -78,7 +78,7 @@ function Game611() {
             </p>
         </div>
 
-        <p className="FontTinos pagesOtherWorksTitle">Other Works</p>
+        <p className="pagesOtherWorksTitle FontLibreBodoniText">Other Works</p>
 
         <div className="worksRow">
             <Link to="/works/payview" className="workItemContainer">

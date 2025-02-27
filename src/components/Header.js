@@ -1,9 +1,29 @@
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink, scroller } from 'react-scroll';
 import '../App.css';
 
-// カスタムコンポーネント：クリック時にルート遷移＆スクロールする
+function TitleLink({ children, className }) {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => window.scrollTo(0, 0), 100);
+        } else {
+        window.scrollTo(0, 0);
+        }
+    };
+
+    return (
+        <a href="/" onClick={handleClick} className={className}>
+        {children}
+        </a>
+    );
+}
+
 function CustomScrollLink({ to, children, className, ...props }) {
     const navigate = useNavigate();
     const location = useLocation();
@@ -42,16 +62,9 @@ function Header() {
     return (
     <div className="headerContainer fadeInTop">
         <div className="headerInner">
-        <Link 
-            to="/" 
-            onClick={() => {
-                window.scrollTo(0, 0);
-                window.location.reload();
-            }}
-            className="title"
-            >
+        <TitleLink className="title FontLibreBodoniText">
             Kouya Arakaki Portfolio
-        </Link>
+        </TitleLink>
         <nav className="nav">
             <CustomScrollLink to="works" className="link">
             Works

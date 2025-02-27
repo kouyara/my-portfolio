@@ -6,7 +6,7 @@ function Hero() {
         <section className="heroSection">
         <div className="heroInner">
             <div className="heroTextContainer">
-            <h1 className="FontDMSerifText heroTitle">Welcome to Kouya Arakaki<br />Portfolio</h1>
+            <h1 className="FontLibreBodoniText heroTitle">Welcome to Kouya Arakaki<br />Portfolio</h1>
             <p className="heroSubtitle">
                 Software Engineer's Portfolio
             </p>

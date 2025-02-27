@@ -13,7 +13,6 @@ function Layout() {
         <>
         <Header />
         <Hero />
-        <div className="App">
             <section id="works">
             <Works />
             </section>
@@ -26,7 +25,6 @@ function Layout() {
             <section id="contact">
             <Contact />
             </section>
-        </div>
         <Footer />
         </>
 );

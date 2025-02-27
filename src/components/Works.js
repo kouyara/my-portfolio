@@ -6,7 +6,7 @@ function Works() {
     return (
     <section id="works" className="section">
         <div className="titleContainer">
-        <h2 className="sectionTitle FontTinos">
+        <h2 className="sectionTitle FontLibreBodoniText">
             Works
         </h2>
         <p className="subtitle">制作物</p>

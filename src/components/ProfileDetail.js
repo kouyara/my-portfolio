@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
-function Profile() {
+function ProfileDetail() {
     return (
     <section id="profile" className="section">
         <div className="titleContainer">
@@ -15,7 +15,7 @@ function Profile() {
         <div className="profileContentRow">
         <div className="profileImageContainer">
             <img
-            src="Profile.jpg"
+            src="../Profile.jpg"
             alt="Profile"
             className="profileImage"
             />
@@ -39,7 +39,7 @@ function Profile() {
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src="github.png" alt="GitHub" className="githubIcon" />
+                <img src="../github.png" alt="GitHub" className="githubIcon" />
             </a>
             </p>
         </div>
@@ -48,4 +48,4 @@ function Profile() {
     );
 }
 
-export default Profile;
+export default ProfileDetail;
