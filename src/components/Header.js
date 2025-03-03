@@ -63,7 +63,7 @@ function Header() {
     <div className="headerContainer fadeInTop">
         <div className="headerInner">
         <TitleLink className="title FontLibreBodoniText">
-            Kouya Arakaki Portfolio
+            Kouya Arakaki
         </TitleLink>
         <nav className="nav">
             <CustomScrollLink to="works" className="link">

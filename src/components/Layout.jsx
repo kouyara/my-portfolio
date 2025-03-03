@@ -5,7 +5,6 @@ import Hero from './Hero';
 import Works from './Works';
 import Skills from './Skills';
 import Profile from './Profile';
-import Contact from './Contact';
 import Footer from './Footer';
 
 function Layout() {
@@ -22,10 +21,7 @@ function Layout() {
             <section id="profile">
             <Profile />
             </section>
-            <section id="contact">
-            <Contact />
-            </section>
-        <Footer />
+        <Footer id="contact"/>
         </>
 );
 }

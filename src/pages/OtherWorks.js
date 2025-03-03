@@ -2,20 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
-function Works() {
+function OtherWorks() {
     return (
-    <section id="works" className="section">
-        <div className="titleContainer">
-        <h2 className="sectionTitle FontLibreBodoniText">
-            Works
-        </h2>
-        <p className="subtitle">制作物</p>
-        </div>
+        <div>
+        <p className="pagesOtherWorksTitle FontLibreBodoniText">Other Works</p>
 
         <div className="worksRow">
-        <Link to="/works/PayView" className="workItemContainer">
+        <Link to="/works/payview" className="workItemContainer">
             <img
-            src="PayView.png"
+            src="../PayView.png"
             alt="PayView"
             className="workItemImage"
             />
@@ -23,9 +18,9 @@ function Works() {
             <p className="workSubtitle">Web App</p>
         </Link>
 
-        <Link to="/works/Game611" className="workItemContainer">
+        <Link to="/works/611-game" className="workItemContainer">
             <img
-            src="Game611.png"
+            src="../Game611.png"
             alt="611 game"
             className="workItemImage"
             />
@@ -35,7 +30,7 @@ function Works() {
 
         <Link to="/works/Portfolio" className="workItemContainer">
             <img
-            src="Portfolio.png"
+            src="../Portfolio.png"
             className="workItemImage"
             />
             <h3 className="workTitle">Portfolio</h3>
@@ -44,7 +39,7 @@ function Works() {
 
         <Link to="/works/Torisan_game" className="workItemContainer">
             <img
-            src="Torisan_game.png"
+            src="../Torisan_game.png"
             className="workItemImage"
             />
             <h3 className="workTitle">Torisan_game</h3>
@@ -53,15 +48,15 @@ function Works() {
 
         <Link to="/works/Bachelor_sThesis_Report" className="workItemContainer">
             <img
-            src="no_image.png"
+            src="../no_image.png"
             className="workItemImage"
             />
             <h3 className="workTitle">卒業論文</h3>
             <p className="workSubtitle">Research</p>
         </Link>
         </div>
-    </section>
+        </div>
     );
 }
 
-export default Works;
+export default OtherWorks;

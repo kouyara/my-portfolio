@@ -2,26 +2,26 @@ import React from 'react';
 import '../App.css';
 import OtherWorks from './OtherWorks';
 
-function PayViewPage() {
+function Torisan_game() {
     return (
     <section className="section">
         <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
-            PayView
+            Torisan_game
             </h2>
-            <p className="subtitle">Web App</p>
+            <p className="subtitle">Unity Game</p>
         </div>
 
         <p className="pagesText">
             <strong>Web Site:</strong>{' '}
             <a
-            href="https://payview.st.ie.u-ryukyu.ac.jp"
+            href="https://ie.u-ryukyu.ac.jp/~e215705/Torisan_game/"
             className="pageLink"
             target="_blank"
             rel="noopener noreferrer"
             >
-            https://payview.st.ie.u-ryukyu.ac.jp
+            https://ie.u-ryukyu.ac.jp/~e215705/Torisan_game/
             </a>
             <br />
         </p>
@@ -29,54 +29,47 @@ function PayViewPage() {
         <p className="pagesText">
             <strong>GitHub:</strong>{' '}
             <a
-            href="https://github.com/kosuke215135/PayView"
+            href="https://github.com/kouyara/Torisan_game"
             className="pageLink"
             target="_blank"
             rel="noopener noreferrer"
             >
-            https://github.com/kosuke215135/PayView
+            https://github.com/kouyara/Torisan_game
             </a>
         </p>
         
         <div className="pagesImageWrapper">
             <img
-            src="../PayView.png"
+            src="../Torisan_game.png"
             className="pagesImage"
             alt="PayView"
             />
         </div>
-        <div className="pagesImageWrapper">
-            <img
-            src="../PayView2.png"
-            className="pagesImage"
-            alt="PayView 2"
-            />
-        </div>
 
         <p className="pagesOutlineText FontZenKakuGothicNewText">
-        消費者向けのWebアプリで、現在地から利用可能な店舗を検索し、その店舗で使用できる決済サービスを事前に確認できる機能を備えている。
-        ユーザーは検索機能を利用して登録されているお店を調べることができ、さらに「食べログ」とは異なり、利用可能な決済サービスのボタンを押すことで、対応する決済アプリへ直接移動することが可能。
-        また、ユーザー自身が新たな店舗情報や決済サービスの対応状況を追加できる仕組みも備えている。
+        学生向けハッカソン「KOZAHACKS」で開発したプロダクト。
+        スイカゲームをUnityで再現しようと思い、模倣して作成した。
+        UnityのWebGL機能を使用し、Webアプリとしてビルドしている。
         </p>
 
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">使用ツール・言語</p>
             <p className="pagesOverviewText">
-            Flask / Python / HTML / CSS / JavaScript / git
+            Unity / C# / WebGL
             </p>
         </div>
         
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">人数</p>
             <p className="pagesOverviewText">
-            4人
+            1人
             </p>
         </div>
         
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">制作期間</p>
             <p className="pagesOverviewText">
-            2023年10月〜2024年02月
+            2024年08月〜2024年09月
             </p>
         </div>
 
@@ -86,4 +79,4 @@ function PayViewPage() {
     );
 }
 
-export default PayViewPage;
+export default Torisan_game;

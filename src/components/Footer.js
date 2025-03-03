@@ -3,17 +3,26 @@ import '../App.css';
 
 function Footer() {
     return (
-        <footer className="footer">
-        <div className="footerLinks">
-            <a href="#profile" className="footerLink">profile</a>
-            <a href="#skills" className="footerLink">skills</a>
-            <a href="#works" className="footerLink">works</a>
-            <a href="#contact" className="footerLink">contact</a>
-        </div>
-        <div className="footerText">
-            All Rights Reserved 2025 ©︎ Kouya Arakaki
-        </div>
-        </footer>
+        <section id="contact" className="footerSection">
+            <div className="contactTitleContainer">
+                <h2 className="contactTitle FontLibreBodoniText">
+                Contact
+                </h2>
+            </div>
+
+            <a href="mailto:e215705@ie.u-ryukyu.ac.jp" className="mailLink">
+                e215705※ie.u-ryukyu.ac.jp
+            </a>
+
+            <p className="contactText FontZenKakuGothicNewText">
+            ※マークを@マークに変更してお送りください。
+            </p>
+            <div className="footer">
+                <div className="footerText">
+                    All Rights Reserved 2025 ©︎ Kouya Arakaki
+                </div>
+            </div>
+        </section>
     );
 }
 

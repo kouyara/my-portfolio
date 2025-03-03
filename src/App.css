@@ -29,12 +29,11 @@ a:hover {
 }
 
 .headerInner {
-  max-width: 1200px;
+  padding: 1rem 4rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
 }
 
 /* ===========================
@@ -81,15 +80,9 @@ a:hover {
   font-family: "Libre Bodoni", serif;
 }
 
-/* ===========================
-   グローバルスタイル由来
-   (JavaScriptのstyleオブジェクトをCSSに変換)
-   =========================== */
-
-/* タイトルなど */
 .title {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   color: #333;
   font-weight: bold;
 }
@@ -166,16 +159,16 @@ a:hover {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin: 3rem 0rem;
 }
 .titleContainer::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: -5px;           /* 必要に応じて調整 */
-  height: 1px;            /* アンダーラインの太さ */
+  height: 1.5px;            /* アンダーラインの太さ */
   width: 0;               /* 初期状態は幅0 */
-  background-color: #000; /* 黒色 */
+  background-color: #666; /* 黒色 */
   animation: underlineAnimation 1s forwards; /* 1秒で全幅に広がる */
 }
 @keyframes underlineAnimation {
@@ -201,10 +194,6 @@ a:hover {
   line-height: 1.6;
   font-size: 0.95rem;
   margin: 0.5rem 0;
-}
-.mailLink {
-  color: #0066cc;
-  text-decoration: underline;
 }
 .skillList {
   list-style: none;
@@ -261,10 +250,13 @@ a:hover {
 }
 
 .techSubheading {
-  font-size: 1rem;
-  margin: 2rem 0rem; /* 上下余白を付けたい場合 */
+  justify-self: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 3rem 0rem; /* 上下余白を付けたい場合 */
 }
 .techIconsList {
+  justify-self: center;
   display: flex;
   flex-wrap: wrap;     /* 画面幅が狭いときは折り返し */
   gap: 1rem;
@@ -293,53 +285,144 @@ a:hover {
 .profileContentRow {
   display: flex;
   align-items: flex-start; /* 上端を揃える */
+  justify-content: left;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.profileDetailContentRow {
+  display: flex;
+  align-items: flex-start; /* 上端を揃える */
   justify-content: center;
   gap: 2rem;
   margin-top: 2rem;
 }
 .profileImageContainer {
-  flex: 0 0 auto;
+  flex: 0 1 40%;
 }
 .profileImage {
-  width: 250px;    /* 必要に応じて調整 */
+  width: 100%;
+  max-width: 350px; /* 大画面での最大サイズ */
   height: auto;
   border-radius: 3%;
   object-fit: cover;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 .profileTextContainer {
-  flex: 1;
+  flex: 1 1 60%;
+  max-width: 530px; /* 必要に応じて最大幅を設定 */
+}
+.profileName{
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000;
+}
+.profileText{
+  font-size: 1rem;
+  color: #2b2b2b;
+  line-height: 2rem;
 }
 .viewMoreContainer {
-  text-align: left;
+  margin-right: 1rem;
+  text-align: right;
   margin-top: 1rem;
 }
 .viewMoreButton {
   display: inline-block;
   background: transparent;
-  color: #2b2b2b;
-  text-decoration: underline;
+  color: #333;
+  text-decoration: none;  /* 下線を消す場合 */
+  font-size: 1rem;
   font-weight: 500;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #999;
+  border-radius: 20px;      /* 丸みを持たせる */
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 .viewMoreButton:hover {
-  background-color: #666;
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: #333;   /* 背景をグレーに */
+  color: #fff;              /* 文字を白に */
+  border: 2px solid #fff;   /* 枠も白に */
 }
 .githubIcon {
   width: 24px;   /* 適切なサイズに調整 */
   height: 24px;
   vertical-align: middle;
 }
+.profileSubTitle{
+  position: relative; /* 疑似要素の位置を調整するため */
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-top: 5rem;
+  margin: 3rem 0rem;
+}
+.profileSubTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;           /* 必要に応じて調整 */
+  height: 1.5px;            /* アンダーラインの太さ */
+  width: 0;               /* 初期状態は幅0 */
+  background-color: #666; /* 黒色 */
+  animation: underlineAnimation 1s forwards; /* 1秒で全幅に広がる */
+}
+@keyframes underlineAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
 
-.footer {
-  border-top: 1px solid #eee;
-  padding: 1rem;
-  text-align: center;
+.contactTitleContainer {
+  position: relative; /* 疑似要素の位置を調整するため */
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 3rem 0rem;
+}
+.contactTitleContainer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;           /* 必要に応じて調整 */
+  height: 1px;            /* アンダーラインの太さ */
+  width: 0;               /* 初期状態は幅0 */
+  background-color: #999; /* 黒色 */
+  animation: underlineAnimation 1s forwards; /* 1秒で全幅に広がる */
+}
+@keyframes underlineAnimation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.footerSection {
   background-color: #2b2b2b;
-  margin-bottom: 1rem;
+  padding: 1rem 4rem 4rem 4rem;
+}
+.contactTitle {
+  margin: 0;
+  font-size: 4rem;
+  color: #fafafa;
+}
+.mailLink {
+  color: #fafafa;
+  font-size: 2rem;
+  text-decoration: underline;
+}
+.contactText{
+  color: #FFFEF9;
+  font-size: 1rem;
+  padding-bottom: 3rem;
+}
+.footer {
+  border-top: 1px solid #999;
+  padding-top: 3rem;
+  background-color: #2b2b2b;
 }
 .footerLinks {
   margin-bottom: 0.5rem;
@@ -351,6 +434,7 @@ a:hover {
   font-size: 0.9rem;
 }
 .footerText {
+  text-align: center;
   font-size: 0.9rem;
   color: #fff;
 }

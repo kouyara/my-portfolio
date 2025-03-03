@@ -11,7 +11,7 @@ function Skills() {
             <p className="subtitle">技術スキル</p>
         </div>
 
-        <h3 className="techSubheading">プログラミング言語</h3>
+        <h3 className="techSubheading FontZenKakuGothicNewText">プログラミング言語</h3>
         <ul className="skillList techIconsList">
             <li>
             <img src="python.png" alt="Python" className="techIcon" />
@@ -31,8 +31,7 @@ function Skills() {
             </li>
         </ul>
 
-        {/* ツール/フレームワーク */}
-        <h3 className="techSubheading">ツール / フレームワーク</h3>
+        <h3 className="techSubheading FontZenKakuGothicNewText">ツール / フレームワーク</h3>
         <ul className="skillList techIconsList">
             <li>
             <img src="unity.png" alt="Unity" className="techIcon" />
