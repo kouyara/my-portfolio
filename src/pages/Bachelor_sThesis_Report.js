@@ -5,7 +5,6 @@ import OtherWorks from './OtherWorks';
 function Bachelor_sThesis_Report() {
     return (
     <section className="section">
-        <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             卒業論文
@@ -59,7 +58,6 @@ function Bachelor_sThesis_Report() {
         </div>
 
         <OtherWorks />
-        </div>
     </section>
     );
 }

@@ -5,7 +5,6 @@ import OtherWorks from './OtherWorks';
 function Portfolio() {
     return (
     <section className="section">
-        <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             Portfolio
@@ -71,7 +70,6 @@ function Portfolio() {
         </div>
 
         <OtherWorks />
-        </div>
     </section>
     );
 }

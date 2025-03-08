@@ -5,7 +5,6 @@ import OtherWorks from './OtherWorks';
 function Torisan_game() {
     return (
     <section className="section">
-        <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             Torisan_game
@@ -74,7 +73,6 @@ function Torisan_game() {
         </div>
 
         <OtherWorks />
-        </div>
     </section>
     );
 }

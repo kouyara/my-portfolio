@@ -5,7 +5,6 @@ import OtherWorks from './OtherWorks';
 function Game611() {
     return (
     <section className="section">
-        <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             611 game
@@ -79,7 +78,6 @@ function Game611() {
         </div>
 
         <OtherWorks />
-        </div>
     </section>
     );
 }

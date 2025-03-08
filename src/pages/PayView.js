@@ -5,7 +5,6 @@ import OtherWorks from './OtherWorks';
 function PayViewPage() {
     return (
     <section className="section">
-        <div className="pagesApp">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             PayView
@@ -81,7 +80,6 @@ function PayViewPage() {
         </div>
 
         <OtherWorks />
-        </div>
     </section>
     );
 }
