@@ -4,7 +4,7 @@ import OtherWorks from './OtherWorks';
 
 function Torisan_game() {
     return (
-    <section className="section">
+    <section className="pagesSection">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             Torisan_game
@@ -68,7 +68,7 @@ function Torisan_game() {
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">制作期間</p>
             <p className="pagesOverviewText">
-            2024年08月〜2024年09月
+            2024年08月〜2024年09月（1ヶ月）
             </p>
         </div>
 

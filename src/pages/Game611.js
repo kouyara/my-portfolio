@@ -4,7 +4,7 @@ import OtherWorks from './OtherWorks';
 
 function Game611() {
     return (
-    <section className="section">
+    <section className="pagesSection">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             611 game
@@ -57,9 +57,28 @@ function Game611() {
         </p>
 
         <div className="pagesOverviewRow">
+            <p className="pagesSubTitle">自分の担当した内容</p>
+            <p className="pagesOverviewText">
+            Unityのライブラリ「ProBuilder」を使用してゲームステージの作成を担当した。
+            C#の当たり判定機能を利用し、キャラクターがアイテムを取得・受け渡しできる機能を実装した。
+            また、LumaAIを用いて、登場キャラクターやアイテムの3Dオブジェクトを作成した。
+            </p>
+        </div>
+        
+        <div className="pagesOverviewRow">
+            <p className="pagesSubTitle">問題と解決策</p>
+            <p className="pagesOverviewText">
+            ・3DオブジェクトにMesh Colliderを適用しても当たり判定がずれることがあった。
+                → BlenderでMesh Colliderを作成することを試みたが、制作時間が不足していたため実装できず、代わりにBox Colliderを使用した。結果としてゲームに支障はなく、Box Colliderで十分に代替できた。<br />
+            ・ゲーム全体が重くなり、動作がカクついて3D酔いを感じることがあった。
+                → LumaAIで作成した3Dオブジェクトのポリゴン数が多かったためゲームが重くなっていたので、ポリゴン数を削減することで動作を軽くした。それにより、ゲーム酔いも抑制できた。
+            </p>
+        </div>
+
+        <div className="pagesOverviewRow">
             <p className="pagesSubTitle">使用ツール・言語</p>
             <p className="pagesOverviewText">
-            Unity / C# / Blender / LumaAI<br />
+            Unity / C# / Oculus Quest / Blender / LumaAI<br />
             </p>
         </div>
         
@@ -73,7 +92,7 @@ function Game611() {
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">制作期間</p>
             <p className="pagesOverviewText">
-            2023年10月〜2024年02月
+            2023年10月〜2024年02月（6ヶ月）
             </p>
         </div>
 

@@ -3,7 +3,7 @@ import '../App.css';
 
 function Skills() {
     return (
-    <section id="skills" className="section">
+    <section id="skills" className="skillsSection">
         <div className="titleContainer">
             <h2 className="sectionTitle FontLibreBodoniText">
             Skills

@@ -98,7 +98,6 @@ a:hover {
   cursor: pointer;
 }
 
-/* Heroセクション (写真を右、文字を左) */
 .heroSection {
   width: 100%;
   text-align: left; /* 左寄せを基本としつつ */
@@ -115,8 +114,6 @@ a:hover {
   color: #666;
   margin: 0;
 }
-
-/* Hero内のレイアウト */
 .heroInner {
   max-width: 1000px;
   margin: 0 auto;
@@ -159,7 +156,7 @@ a:hover {
   display: flex;
   align-items: baseline;
   gap: 1rem;
-  margin: 3rem 0rem;
+  margin-bottom: 3rem;
 }
 .titleContainer::after {
   content: "";
@@ -237,6 +234,10 @@ a:hover {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
+.skillsSection {
+  background-color: #fafafa;
+  padding: 0rem 4rem 4rem 4rem;
+}
 .techSubheading {
   justify-self: center;
   font-size: 1.2rem;
@@ -491,6 +492,9 @@ a:hover {
   color: #fff;
 }
 
+.pagesSection {
+  padding: 1rem 4rem 4rem 4rem;
+}
 .pageLink {
   text-decoration: underline;
 }
@@ -522,6 +526,15 @@ a:hover {
   text-align: center;
   line-height: 1.7;
   font-size: 1.0rem; /* お好みで調整 */
+  width: 90%; /* 横幅を固定 (適宜調整) */
+  margin: 2rem auto; /* 上下に余白を持たせつつ、中央配置 */
+  color: #333;
+}
+.pagesAbstractText {
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.0rem; /* お好みで調整 */
+  font-weight: bold;
   width: 90%; /* 横幅を固定 (適宜調整) */
   margin: 2rem auto; /* 上下に余白を持たせつつ、中央配置 */
   color: #333;

@@ -4,7 +4,7 @@ import OtherWorks from './OtherWorks';
 
 function Bachelor_sThesis_Report() {
     return (
-    <section className="section">
+    <section className="pagesSection">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             卒業論文
@@ -21,7 +21,11 @@ function Bachelor_sThesis_Report() {
 
         <p className="pagesOutlineText FontZenKakuGothicNewText">
             研究テーマ: 「筋変位センサを用いた握力推定モデルの精度向上に関する研究」<br />
+        </p>
+        <p className="pagesAbstractText FontZenKakuGothicNewText">
             要旨(Abstract)<br />
+        </p>
+        <p className="pagesOutlineText FontZenKakuGothicNewText">
             近年のVRおよびAR技術の進展に伴い, 筋変位センサを用いたインターフェースへの関心が高まっている.
 筋変位センサは, 表層筋肉の微細な変位を測定することで, 従来の物理コントローラーでは困難だった力加減を使った操作を可能にする.
 このセンサは, ゲームやトレーニングシミュレーションだけでなく, 医療リハビリや遠隔操作ロボットの分野でも応用されている.
@@ -53,7 +57,7 @@ function Bachelor_sThesis_Report() {
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">制作期間</p>
             <p className="pagesOverviewText">
-            2024年4月〜2025年2月
+            2024年4月〜2025年2月（10ヶ月）
             </p>
         </div>
 

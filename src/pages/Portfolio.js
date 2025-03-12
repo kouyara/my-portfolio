@@ -4,7 +4,7 @@ import OtherWorks from './OtherWorks';
 
 function Portfolio() {
     return (
-    <section className="section">
+    <section className="pagesSection">
         <div className="titleContainer">
             <h2 className="FontLibreBodoniText pagesTitle">
             Portfolio
@@ -65,7 +65,7 @@ function Portfolio() {
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">制作期間</p>
             <p className="pagesOverviewText">
-            2025年2月〜
+            2025年2月〜3月（1ヶ月）
             </p>
         </div>
 
