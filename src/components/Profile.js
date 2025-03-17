@@ -4,7 +4,7 @@ import '../App.css';
 
 function Profile() {
     return (
-    <section id="profile" className="section">
+    <section id="profile" className="profileSection">
         <div className="titleContainer">
         <h2 className="sectionTitle FontLibreBodoniText">
             Profile

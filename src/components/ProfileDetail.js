@@ -3,7 +3,7 @@ import '../App.css';
 
 function ProfileDetail() {
     return (
-    <section id="profile" className="section">
+    <section id="profile" className="profileDetailSection">
         <div className="titleContainer">
         <h2 className="sectionTitle FontLibreBodoniText">
             Profile
@@ -49,7 +49,7 @@ function ProfileDetail() {
             技術スキル
         </h2>
         <h3 className="techSubheading FontZenKakuGothicNewText">プログラミング言語</h3>
-        <ul className="skillList techIconsList">
+        <ul className="techIconsList">
             <li>
             <img src="../python.png" alt="Python" className="techIcon" />
             <span className="techSkillName">Python</span>
@@ -69,7 +69,7 @@ function ProfileDetail() {
         </ul>
 
         <h3 className="techSubheading FontZenKakuGothicNewText">ツール / フレームワーク</h3>
-        <ul className="skillList techIconsList">
+        <ul className="techIconsList">
             <li>
             <img src="../unity.png" alt="Unity" className="techIcon" />
             <span className="techSkillName">Unity</span>
@@ -113,7 +113,7 @@ function ProfileDetail() {
         </div>
 
         <div className="profileOverviewRow">
-            <p className="profileOverviewSubTitle">Project2</p>
+        <p className="profileOverviewSubTitle">Project2</p>
             <p className="profileOverviewText">
             Flutterを利用して社内用アプリのUIを直感的かつ使いやすいデザインで実装
             </p>

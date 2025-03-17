@@ -4,7 +4,7 @@ import '../App.css';
 
 function Works() {
     return (
-    <section id="works" className="section">
+    <section id="works" className="worksSection">
         <div className="titleContainer">
         <h2 className="sectionTitle FontLibreBodoniText">
             Works

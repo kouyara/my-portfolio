@@ -12,7 +12,7 @@ function Skills() {
         </div>
 
         <h3 className="techSubheading FontZenKakuGothicNewText">プログラミング言語</h3>
-        <ul className="skillList techIconsList">
+        <ul className="techIconsList">
             <li>
             <img src="python.png" alt="Python" className="techIcon" />
             <span className="techSkillName">Python</span>
@@ -32,7 +32,7 @@ function Skills() {
         </ul>
 
         <h3 className="techSubheading FontZenKakuGothicNewText">ツール / フレームワーク</h3>
-        <ul className="skillList techIconsList">
+        <ul className="techIconsList">
             <li>
             <img src="unity.png" alt="Unity" className="techIcon" />
             <span className="techSkillName">Unity</span>
