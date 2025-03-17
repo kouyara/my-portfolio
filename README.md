@@ -27,9 +27,24 @@ webポートフォリオ。
 ---
 
 ## インストール & セットアップ
-
+1. リポジトリをクローン
+   ```bash
+   git clone https://github.com/your-username/my-portfolio.git
+   ```
+2. ディレクトリに移動する
+   ```bash
+   cd my-portfolio
+   ```
+3. 依存パッケージをインストールする
+   ```bash
+   npm install
+   ```
 
 ## アプリの起動
+ローカル環境でアプリを起動するには、以下のコマンドを実行
+```bash
+npm start
+```
 
 ## ライセンス
 本プロジェクトのライセンスは GNU General Public License (GPL 2.0) を想定しています。
