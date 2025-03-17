@@ -10,10 +10,14 @@ function TitleLink({ children, className }) {
     const handleClick = (e) => {
         e.preventDefault();
         if (location.pathname !== '/') {
-        navigate('/');
-        setTimeout(() => window.scrollTo(0, 0), 100);
+            navigate('/');
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                window.location.reload();
+            }, 100);
         } else {
-        window.scrollTo(0, 0);
+            window.scrollTo(0, 0);
+            window.location.reload();
         }
     };
 
@@ -24,27 +28,29 @@ function TitleLink({ children, className }) {
     );
 }
 
-function CustomScrollLink({ to, children, className, ...props }) {
+function CustomScrollLink({ to, children, className, onClick, ...props }) {
     const navigate = useNavigate();
     const location = useLocation();
 
     const handleClick = (e) => {
-    if (location.pathname !== '/') {
+        // 受け取った onClick を呼び出してメニューを閉じる
+        if (onClick) onClick();
+
+        if (location.pathname !== '/') {
         e.preventDefault();
         navigate('/');
-
         setTimeout(() => {
-        scroller.scrollTo(to, {
+            scroller.scrollTo(to, {
             duration: 500,
             smooth: true,
             offset: -70,
-        });
+            });
         }, 100);
-    }
+        }
     };
 
     return (
-    <ScrollLink
+        <ScrollLink
         to={to}
         smooth={true}
         duration={500}
@@ -52,66 +58,67 @@ function CustomScrollLink({ to, children, className, ...props }) {
         onClick={handleClick}
         className={className}
         {...props}
-    >
+        >
         {children}
-    </ScrollLink>
+        </ScrollLink>
     );
 }
 
+
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
-  
+
     const toggleMenu = () => {
-      setMenuOpen(!menuOpen);
+        setMenuOpen(!menuOpen);
     };
-  
+
     const handleMenuClick = () => {
-      setMenuOpen(false);
+        setMenuOpen(false);
     };
-  
+
     return (
-      <>
+        <>
         {/* ヘッダー */}
         <div className="headerContainer fadeInTop">
-          <div className="headerInner">
+            <div className="headerInner">
             <TitleLink className="title FontLibreBodoniText">
-              Kouya Arakaki
+                Kouya Arakaki
             </TitleLink>
-  
+
             {/* ハンバーガーアイコン */}
             <div
-              className={`hamburgerIcon ${menuOpen ? 'active' : ''}`}
-              onClick={toggleMenu}
+                className={`hamburgerIcon ${menuOpen ? 'active' : ''}`}
+                onClick={toggleMenu}
             >
-              <span></span>
-              <span></span>
-              <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-  
+
             {/* ナビゲーションメニュー */}
             <nav className={`nav ${menuOpen ? 'open' : ''}`}>
-              <CustomScrollLink to="works" className="link" onClick={handleMenuClick}>
+                <CustomScrollLink to="works" className="link" onClick={handleMenuClick}>
                 Works
-              </CustomScrollLink>
-              <CustomScrollLink to="skills" className="link" onClick={handleMenuClick}>
+                </CustomScrollLink>
+                <CustomScrollLink to="skills" className="link" onClick={handleMenuClick}>
                 Skills
-              </CustomScrollLink>
-              <CustomScrollLink to="profile" className="link" onClick={handleMenuClick}>
+                </CustomScrollLink>
+                <CustomScrollLink to="profile" className="link" onClick={handleMenuClick}>
                 Profile
-              </CustomScrollLink>
-              <CustomScrollLink to="contact" className="link" onClick={handleMenuClick}>
+                </CustomScrollLink>
+                <CustomScrollLink to="contact" className="link" onClick={handleMenuClick}>
                 Contact
-              </CustomScrollLink>
+                </CustomScrollLink>
             </nav>
-          </div>
+            </div>
         </div>
-  
+
         {/* 画面全体のぼかし・暗幕オーバーレイ (menuOpen が true のときに表示) */}
         {menuOpen && (
-          <div className="menuOverlay" onClick={handleMenuClick}></div>
+            <div className="menuOverlay" onClick={handleMenuClick}></div>
         )}
-      </>
+        </>
     );
-  }
+    }
 
 export default Header;

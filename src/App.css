@@ -239,6 +239,9 @@ a:hover {
   margin: 0.5rem 0;
 }
 
+.worksSection {
+  padding: 0rem 4rem 4rem 4rem;
+}
 .workItem {
   margin-bottom: 2rem;
 }
@@ -660,6 +663,9 @@ a:hover {
   .worksSection {
     padding: 0rem 1rem 4rem 1rem;
   }
+  .workItemContainer {
+    flex: 0 0 300px;
+  }
   .skillsSection {
     background-color: #fafafa;
     padding: 0rem 1rem 4rem 1rem;
@@ -693,5 +699,14 @@ a:hover {
   }
   .pagesSection {
     padding: 1rem 1rem 4rem 1rem;
+  }
+  .pagesOverviewRow {
+    display: contents;
+  }
+  .pagesSubTitle {
+    margin-top: 3rem;
+  }
+  .mailLink {
+    font-size: 1rem;
   }
 }

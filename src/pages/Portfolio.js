@@ -45,7 +45,10 @@ function Portfolio() {
         </div>
 
         <p className="pagesOutlineText FontZenKakuGothicNewText">
-            就職活動のために1人で開発しました。
+        就職活動のために開発したWebポートフォリオ。
+        自己紹介、スキル、制作物などをまとめている。
+        UIはテンプレートを使用せず、自分で一から制作した。
+        企業様や採用担当者様が簡単に閲覧できるよう、シンプルで見やすいUIを心がけた。
         </p>
 
         <div className="pagesOverviewRow">
