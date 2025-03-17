@@ -13,6 +13,17 @@ import Portfolio from './pages/Portfolio';
 import Torisan_game from './pages/Torisan_game';
 import Bachelor_sThesis_Report from './pages/Bachelor_sThesis_Report';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // パスが変わるたびに最上部へ
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null; // コンポーネントとしては何も描画しない
+}
+
 // GA4Trackerコンポーネント: ルート変更時にページビューを送信
 function GA4Tracker() {
   const location = useLocation();
@@ -32,6 +43,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route path="/works/PayView" element={<><Header /><PayView /><Footer /></>} />
