@@ -30,7 +30,7 @@
 ## インストール & セットアップ
 1. リポジトリをクローン
    ```bash
-   git clone https://github.com/your-username/my-portfolio.git
+   git clone git@github.com:kouyara/my-portfolio.git
    ```
 2. ディレクトリに移動する
    ```bash
