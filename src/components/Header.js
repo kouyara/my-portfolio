@@ -12,12 +12,12 @@ function TitleLink({ children, className }) {
         if (location.pathname !== '/') {
             navigate('/');
             setTimeout(() => {
-                window.scrollTo(0, 0);
                 window.location.reload();
+                window.scrollTo(0, 0);
             }, 100);
         } else {
-            window.scrollTo(0, 0);
             window.location.reload();
+            window.scrollTo(0, 0);
         }
     };
 
@@ -64,6 +64,12 @@ function CustomScrollLink({ to, children, className, onClick, ...props }) {
     );
 }
 
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth', // スムーズスクロール
+    });
+};
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -117,8 +123,11 @@ function Header() {
         {menuOpen && (
             <div className="menuOverlay" onClick={handleMenuClick}></div>
         )}
+        <div className="backToTop" onClick={scrollToTop}>
+            ↑
+        </div>
         </>
     );
-    }
+}
 
 export default Header;

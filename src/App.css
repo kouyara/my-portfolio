@@ -7,7 +7,7 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background-color: #FFFEF9;
+  background-color: #fffef9;
 }
 
 a {
@@ -27,6 +27,9 @@ a:hover {
 .FontLibreBodoniText {
   font-family: "Libre Bodoni", serif;
 }
+.FontZenOldMinchoText {
+  font-family: "Zen Old Mincho", serif;
+}
 
 .headerContainer {
   font-family: "Tinos", serif; /* お好みのフォント */
@@ -34,6 +37,7 @@ a:hover {
   position: sticky;  /* スクロール時に固定 */
   top: 0;
   z-index: 999;
+  /* background-color: #fffef9; */
 }
 .headerInner {
   padding: 1rem 4rem;
@@ -163,14 +167,14 @@ a:hover {
 }
 
 .heroSection {
-  width: 100%;
-  text-align: left; /* 左寄せを基本としつつ */
   background-color: #fafafa;
-  margin-bottom: 2rem;
-  padding: 3rem 1rem; /* 上下左右の余白 */
+  width: 100%;
+  height: 90vh;
+  text-align: left;
+  padding: 3rem 1rem;
 }
 .heroTextContainer {
-  flex: 1; /* テキストエリアが残りを埋める */
+  flex: 1;
   color: #333;
 }
 .heroSubtitle {
@@ -196,10 +200,96 @@ a:hover {
   font-size: 4rem;
   margin: 0 0 1rem;
 }
+.scrollIndicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 4rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.scrollArrow {
+  width: 2px;
+  height: 40px;
+  background-color: #333;
+  position: relative;
+  margin-bottom: 0.3rem;
+  animation: slide 3s infinite;
+}
+@keyframes slide {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(10px); }
+  100% { transform: translateY(0); }
+}
+.scrollText {
+  margin-bottom: 2rem;
+  color: #333;
+  opacity: 0.8;
+  display: inline-block;
+}
+.scrollText span {
+  display: inline-block;
+  font-size: 0.8rem;
+  animation: jump 3s infinite;
+  transform-origin: bottom center;
+}
+.scrollText span:nth-child(1) {
+  animation-delay: 0s;
+}
+.scrollText span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.scrollText span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.scrollText span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.scrollText span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.scrollText span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+@keyframes jump {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+.backToTop {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  color: #666;
+  background-color: #fff;
+  padding: 0.9rem 1.4rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 999;
+  transition: all 0.2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .backToTop:hover {
+    background-color: #666;
+    color: #fff;
+    border-color: #666;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+  }
+}
+@media (hover: none) {
+  .backToTop:hover {
+  }
+}
+
 
 .titleContainer {
   position: relative; /* 疑似要素の位置を調整するため */
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: 1rem;
   margin-bottom: 3rem;
@@ -208,11 +298,11 @@ a:hover {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -5px;           /* 必要に応じて調整 */
-  height: 1.5px;            /* アンダーラインの太さ */
-  width: 0;               /* 初期状態は幅0 */
-  background-color: #666; /* 黒色 */
-  animation: underlineAnimation 1s forwards; /* 1秒で全幅に広がる */
+  bottom: 5px;
+  height: 1.5px;
+  width: 0;
+  background-color: #666;
+  animation: underlineAnimation 1s forwards;
 }
 @keyframes underlineAnimation {
   from {
@@ -240,7 +330,7 @@ a:hover {
 }
 
 .worksSection {
-  padding: 0rem 4rem 4rem 4rem;
+  padding: 3rem 4rem 4rem 4rem;
 }
 .workItem {
   margin-bottom: 2rem;
@@ -280,7 +370,7 @@ a:hover {
 
 .skillsSection {
   background-color: #fafafa;
-  padding: 0rem 4rem 4rem 4rem;
+  padding: 3rem 4rem 4rem 4rem;
 }
 .techSubheading {
   justify-self: center;
@@ -315,7 +405,7 @@ a:hover {
 }
 
 .profileSection {
-  padding: 0rem 4rem 4rem 4rem;
+  padding: 3rem 4rem 4rem 4rem;
 }
 .profileDetailSection {
   padding: 1rem 4rem 4rem 4rem;
@@ -358,26 +448,26 @@ a:hover {
   display: inline-block;
   background: transparent;
   color: #333;
-  text-decoration: none;  /* 下線を消す場合 */
+  text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
   border: 1px solid #999;
-  border-radius: 20px;      /* 丸みを持たせる */
+  border-radius: 20px;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 .viewMoreButton:hover {
-  background-color: #333;   /* 背景をグレーに */
-  color: #fff;              /* 文字を白に */
-  border: 2px solid #fff;   /* 枠も白に */
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
 }
 .githubIcon {
-  width: 24px;   /* 適切なサイズに調整 */
+  width: 24px;
   height: 24px;
   vertical-align: middle;
 }
 .profileSubTitle{
-  position: relative; /* 疑似要素の位置を調整するため */
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 1rem;
@@ -532,8 +622,8 @@ a:hover {
 }
 .footer {
   border-top: 1px solid #999;
+  margin-top: 5rem;
   padding-top: 3rem;
-  background-color: #2b2b2b;
 }
 .footerLinks {
   margin-bottom: 0.5rem;
@@ -643,12 +733,25 @@ a:hover {
 
 /* スマホ用切り替え */
 @media (max-width: 670px) {
+  .sectionTitle {
+    font-size: 3rem;
+  }
+  .contactTitle {
+    font-size: 3rem;
+  }
   .headerInner {
     padding: 1rem 1rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .heroSection {
+    background-color: #fafafa;
+    width: 100%;
+    height: 93vh;
+    text-align: left;
+    padding: 3rem 1rem;
   }
   .heroInner {
     flex-direction: column;
@@ -660,15 +763,39 @@ a:hover {
   .heroTitle {
     font-size: 3rem;
   }
+  .scrollIndicator {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 4rem;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .backToTop {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    color: #666;
+    background-color: #fff;
+    padding: 0.9rem 1.4rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 999;
+    transition: all 0.2s ease;
+  }
   .worksSection {
-    padding: 0rem 1rem 4rem 1rem;
+    padding: 1rem 1rem 4rem 1rem;
   }
   .workItemContainer {
     flex: 0 0 300px;
   }
   .skillsSection {
     background-color: #fafafa;
-    padding: 0rem 1rem 4rem 1rem;
+    padding: 1rem 1rem 4rem 1rem;
   }
   .techIconsList {
     justify-self: center;
@@ -679,10 +806,10 @@ a:hover {
     padding-left: 40px;
   }
   .profileSection {
-    padding: 0rem 1rem 4rem 1rem;
+    padding: 1rem 1rem 4rem 1rem;
   }
   .profileDetailSection {
-    padding: 1rem 1rem 4rem 1rem;
+    padding: 0rem 1rem 4rem 1rem;
   }
   .profileOverviewRow {
     display: contents;
@@ -698,13 +825,32 @@ a:hover {
     padding: 1rem 1rem 4rem 1rem;
   }
   .pagesSection {
-    padding: 1rem 1rem 4rem 1rem;
+    padding: 0rem 1rem 4rem 1rem;
+  }
+  .titleContainer {
+    position: relative;
+    display: block;
+    margin-bottom: 2rem;
+  }
+  .pagesTitle {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .subtitle {
+    margin: 0;
+    padding-top: 0.3rem;
+    padding-bottom: 0.1rem;
+    font-size: 0.8rem;
+    color: #666;
   }
   .pagesOverviewRow {
     display: contents;
   }
   .pagesSubTitle {
     margin-top: 3rem;
+  }
+  .titleContainer::after {
+    bottom: -5px;
   }
   .mailLink {
     font-size: 1rem;

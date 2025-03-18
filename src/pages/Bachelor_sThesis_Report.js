@@ -6,7 +6,7 @@ function Bachelor_sThesis_Report() {
     return (
     <section className="pagesSection">
         <div className="titleContainer">
-            <h2 className="FontLibreBodoniText pagesTitle">
+            <h2 className="FontZenOldMinchoText pagesTitle">
             卒業論文
             </h2>
             <p className="subtitle">Research</p>
