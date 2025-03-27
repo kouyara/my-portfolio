@@ -10,9 +10,9 @@ function Footer() {
                 </h2>
             </div>
 
-            <p className="mailLink">
+            <a className="mailLink" href='mailto:e215705@ie.u-ryukyu.ac.jp'>
                 e215705※ie.u-ryukyu.ac.jp
-            </p>
+            </a>
 
             <p className="contactText FontZenKakuGothicNewText">
             ※マークを@マークに変更してお送りください。
