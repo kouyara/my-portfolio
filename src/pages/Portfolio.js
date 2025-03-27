@@ -15,12 +15,12 @@ function Portfolio() {
         <p className="pagesText">
             <strong>Web Site:</strong>{' '}
             <a
-            href="https://payview.st.ie.u-ryukyu.ac.jp"
+            href="https://kouya.st.ie.u-ryukyu.ac.jp/"
             className="pageLink"
             target="_blank"
             rel="noopener noreferrer"
             >
-            https://payview.st.ie.u-ryukyu.ac.jp
+            https://kouya.st.ie.u-ryukyu.ac.jp/
             </a>
             <br />
         </p>
