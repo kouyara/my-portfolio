@@ -52,6 +52,13 @@ function Torisan_game() {
         </p>
 
         <div className="pagesOverviewRow">
+            <p className="pagesSubTitle">自分の担当した内容</p>
+            <p className="pagesOverviewText">
+            主に、C#でオブジェクトの当たり判定処理で、重力の影響を受けるようにしたり、スコア表示させるようにした。
+            </p>
+        </div>
+
+        <div className="pagesOverviewRow">
             <p className="pagesSubTitle">使用ツール・言語</p>
             <p className="pagesOverviewText">
             Unity / C# / WebGL
@@ -61,7 +68,7 @@ function Torisan_game() {
         <div className="pagesOverviewRow">
             <p className="pagesSubTitle">人数</p>
             <p className="pagesOverviewText">
-            1人
+            2人
             </p>
         </div>
         

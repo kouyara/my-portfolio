@@ -35,6 +35,18 @@ function Game611() {
             https://drive.google.com/file/d/1eMm5BS8tkSAS8aLUA38qyKNIvZzt-I9-/view?usp=sharing
             </a>
         </p>
+
+        <p className="pagesText">
+            <strong>Slide:</strong>{' '}
+            <a
+            href="https://docs.google.com/presentation/d/1VFFN5E-9LteSE6-K_pASYL-4fUyeI3uW/edit?usp=sharing&ouid=107441685589901808496&rtpof=true&sd=true"
+            className="pageLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            https://docs.google.com/presentation/d/1VFFN5E-9LteSE6-K_pASYL-4fUyeI3uW/edit?usp=sharing&ouid=107441685589901808496&rtpof=true&sd=true
+            </a>
+        </p>
         
         <div className="pagesImageWrapper">
             <img
@@ -57,11 +69,28 @@ function Game611() {
         </p>
 
         <div className="pagesOverviewRow">
+            <p className="pagesSubTitle">開発背景</p>
+            <p className="pagesOverviewText">
+            メンバー全員がUnityやC#に触れた経験がなかったこと、そして研究室にVRゲームがあったことがきっかけで、
+            Unityを用いてVRゲームの開発に挑戦することになった。
+            </p>
+        </div>
+
+        <div className="pagesOverviewRow">
+            <p className="pagesSubTitle">こだわり・工夫点</p>
+            <p className="pagesOverviewText">
+            ・LumaAIを利用して、実在する人物や物体を360度撮影し、3Dオブジェクトを生成した。<br />
+            ・LumaAIで生成した3DオブジェクトにはBlenderでボーンを付与し、その後Unity上でアニメーションとして動作させた。<br />
+            ・Unityのライブラリ「ProBuilder」を使用して、ゲームステージを作成した。<br />
+            ・C#を用いて、キャラクターがアイテムを取得・受け渡しできるように、当たり判定機能やログ出力機能を実装した。
+            </p>
+        </div>
+
+        <div className="pagesOverviewRow">
             <p className="pagesSubTitle">自分の担当した内容</p>
             <p className="pagesOverviewText">
-            Unityのライブラリ「ProBuilder」を使用してゲームステージの作成を担当した。
-            C#の当たり判定機能を利用し、キャラクターがアイテムを取得・受け渡しできる機能を実装した。
-            また、LumaAIを用いて、登場キャラクターやアイテムの3Dオブジェクトを作成した。
+            Unityのライブラリ『ProBuilder』を利用してゲームステージの作成を担当し、C#でキャラクターがアイテムを取得・受け渡しできるよう、当たり判定機能やログ出力機能を実装した。
+            また、LumaAIを活用して実在する人物や物体を360度撮影し、3Dオブジェクトを生成した。
             </p>
         </div>
         
