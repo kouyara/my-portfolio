@@ -18,7 +18,7 @@ function OtherWorks() {
             <p className="workSubtitle">Web App</p>
         </Link>
 
-        <Link to="/works/611-game" className="workItemContainer">
+        <Link to="/works/Game611" className="workItemContainer">
             <img
             src="../Game611.png"
             alt="611 game"
