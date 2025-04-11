@@ -17,7 +17,7 @@ function ProfileDetail() {
                 新垣 江耶（Kouya Arakaki）</p>
             <p className="profileText FontZenKakuGothicNewText">
             🚹 2002年、沖縄生まれ。<br />
-            琉球大学 工学部 工学科 知能情報コース在籍 (2021年4月 - 2025年3月)。<br />
+            琉球大学大学院 理工学研究科 知能情報プログラム在籍 (2025年4月 - 2027年3月)。<br />
             株式会社タップでインターンシップとして現在も従事(2024年8月 - )。<br />
             大学では情報工学を専攻しており、特に授業ではコンピュータ技術、ネットワーク技術、人工知能技術について学んでいる。<br />
             研究室は、玉城絵美先生のBodySharingLabに所属しており、BodySharingやXR、HCIの研究を行っている。<br />
@@ -190,7 +190,6 @@ function ProfileDetail() {
             <p className="profileOverviewText">
             研究室は、玉城絵美先生の指導の下、BodySharingLabに所属しており、BodySharingやXR、HCIの研究に取り組んでいる。
             卒業論文では、H2L社のFirstVRを用いて筋変位を測定し、握力推定モデルの精度向上に関する研究を行った。
-            修士研究では、筋変位センサと握力推定モデルを応用し、VR/ARコントローラへの実装を目指している。
             </p>
         </div>
 
