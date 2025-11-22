@@ -2,11 +2,17 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
+  --background: #f8f4ec;
   --foreground: #171717;
   --font-libre-bodoni: 'Libre Bodoni', serif;
   --font-playfair: 'Playfair Display', serif;
   --font-inter: 'Inter', sans-serif;
+  --primary-blue: #0077b6;
+  --primary-blue-hover: #00b4d8;
+  --primary-blue-light: rgba(0, 119, 182, 0.1);
+  --white: #f8f4ec;
+  --white-light: #faf7f2;
+  --white-gray: #eeebe3;
 }
 
 @theme inline {
@@ -14,6 +20,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: #0077b6;
+  --color-primary-hover: #005a8d;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,7 +60,43 @@ html {
   font-weight: 700;
 }
 
-/* Custom scrollbar */
+/* Primary color utilities */
+.bg-primary {
+  background-color: var(--primary-blue);
+}
+
+.bg-white-custom {
+  background-color: var(--white);
+}
+
+.bg-white-light {
+  background-color: var(--white-light);
+}
+
+.bg-white-gray {
+  background-color: var(--white-gray);
+}
+
+.bg-primary-hover:hover {
+  background-color: var(--primary-blue-hover);
+}
+
+.text-primary {
+  color: var(--primary-blue);
+}
+
+.border-primary {
+  border-color: var(--primary-blue);
+}
+
+.hover-text-primary:hover {
+  color: var(--primary-blue);
+}
+
+.hover-border-primary:hover {
+  border-color: var(--primary-blue);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

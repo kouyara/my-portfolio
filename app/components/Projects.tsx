@@ -1,3 +1,5 @@
+'use client';
+
 export default function Projects() {
   const projects = [
     {
@@ -51,13 +53,13 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-white-gray dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-inter-bold">
             My Projects
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-inter">
             Here are some of my recent projects that showcase my skills and
             experience in web development.
@@ -68,14 +70,18 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group"
+              className="bg-white-custom dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group"
             >
-              {/* Project Image/Icon */}
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-7xl group-hover:scale-110 transition-transform duration-300">
+              <div
+                className="h-48 flex items-center justify-center text-7xl group-hover:scale-110 transition-transform duration-300"
+                style={{
+                  background:
+                    'linear-gradient(to bottom right, #0077B6, #9333ea)',
+                }}
+              >
                 {project.image}
               </div>
 
-              {/* Project Content */}
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white font-inter-bold">
                   {project.title}
@@ -84,22 +90,24 @@ export default function Projects() {
                   {project.description}
                 </p>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 text-xs font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 rounded-full"
+                      className="px-3 py-1 text-xs font-medium text-primary rounded-full"
+                      style={{ backgroundColor: 'var(--primary-blue-light)' }}
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Link */}
                 <a
                   href={project.link}
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+                  className="inline-flex items-center text-primary hover-text-primary font-medium transition-colors"
+                  style={{ opacity: '1' }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
                 >
                   View Project
                   <svg

@@ -31,13 +31,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="contact" className="py-20 bg-white-gray dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-inter-bold">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-inter">
             Have a project in mind or want to collaborate? Feel free to reach
             out!
@@ -45,7 +45,6 @@ export default function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 font-inter-bold">
@@ -53,9 +52,12 @@ export default function Contact() {
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                  <div
+                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--primary-blue-light)' }}
+                  >
                     <svg
-                      className="w-6 h-6 text-blue-600 dark:text-blue-400"
+                      className="w-6 h-6 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -79,9 +81,12 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                  <div
+                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--primary-blue-light)' }}
+                  >
                     <svg
-                      className="w-6 h-6 text-blue-600 dark:text-blue-400"
+                      className="w-6 h-6 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -105,9 +110,12 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                  <div
+                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
+                    style={{ backgroundColor: 'var(--primary-blue-light)' }}
+                  >
                     <svg
-                      className="w-6 h-6 text-blue-600 dark:text-blue-400"
+                      className="w-6 h-6 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -139,8 +147,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+          <div className="bg-white-custom dark:bg-gray-800 rounded-xl shadow-lg p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
@@ -156,7 +163,13 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white-custom dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:border-transparent transition-colors"
+                  style={{ outlineColor: 'var(--primary-blue)' }}
+                  onFocus={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      '0 0 0 2px var(--primary-blue-light)')
+                  }
+                  onBlur={(e) => (e.currentTarget.style.boxShadow = '')}
                   placeholder="Your name"
                 />
               </div>
@@ -175,7 +188,13 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white-custom dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:border-transparent transition-colors"
+                  style={{ outlineColor: 'var(--primary-blue)' }}
+                  onFocus={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      '0 0 0 2px var(--primary-blue-light)')
+                  }
+                  onBlur={(e) => (e.currentTarget.style.boxShadow = '')}
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -194,14 +213,26 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white-custom dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:border-transparent transition-colors resize-none"
+                  style={{ outlineColor: 'var(--primary-blue)' }}
+                  onFocus={(e) =>
+                    (e.currentTarget.style.boxShadow =
+                      '0 0 0 2px var(--primary-blue-light)')
+                  }
+                  onBlur={(e) => (e.currentTarget.style.boxShadow = '')}
                   placeholder="Your message..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/50 transition-colors font-inter"
+                className="w-full px-6 py-3 bg-primary text-white rounded-lg font-medium bg-primary-hover transition-colors font-inter"
+                style={{ boxShadow: 'none' }}
+                onFocus={(e) =>
+                  (e.currentTarget.style.boxShadow =
+                    '0 0 0 4px var(--primary-blue-light)')
+                }
+                onBlur={(e) => (e.currentTarget.style.boxShadow = 'none')}
               >
                 Send Message
               </button>

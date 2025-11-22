@@ -36,10 +36,9 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-white-gray dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col items-center space-y-6">
-          {/* Social Links */}
           <div className="flex space-x-6">
             {socialLinks.map((link) => (
               <a
@@ -47,7 +46,7 @@ export default function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 hover-text-primary dark:text-gray-400 transition-colors"
                 aria-label={link.name}
               >
                 {link.icon}
@@ -55,24 +54,22 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Copyright */}
           <div className="text-center text-gray-600 dark:text-gray-400">
             <p className="font-inter">
               © {currentYear} Portfolio. All rights reserved.
             </p>
           </div>
 
-          {/* Additional Links */}
           <div className="flex space-x-6 text-sm">
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors font-inter"
+              className="text-gray-600 hover-text-primary dark:text-gray-400 transition-colors font-inter"
             >
               Privacy Policy
             </a>
             <a
               href="#"
-              className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors font-inter"
+              className="text-gray-600 hover-text-primary dark:text-gray-400 transition-colors font-inter"
             >
               Terms of Service
             </a>

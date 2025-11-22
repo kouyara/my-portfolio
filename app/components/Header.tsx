@@ -15,31 +15,31 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 dark:bg-black/80 dark:border-gray-800">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-gray-200 dark:bg-black/80 dark:border-gray-800"
+      style={{ backgroundColor: 'rgba(248, 244, 236, 0.8)' }}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Link
             href="#home"
-            className="text-2xl font-extrabold underline text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-inter-bold"
+            className="text-2xl font-extrabold underline text-black dark:text-white hover-text-primary transition-colors font-inter-bold"
           >
             My-Portfolio
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-black dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-extrabold font-inter-bold"
+                className="text-black dark:text-gray-300 hover-text-primary transition-colors font-extrabold font-inter-bold"
               >
                 {item.name}
               </Link>
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -63,7 +63,6 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-2">
             {navItems.map((item) => (
