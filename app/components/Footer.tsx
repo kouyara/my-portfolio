@@ -9,7 +9,7 @@ export default function Footer() {
     },
     {
       name: 'Hatena Blog',
-      href: 'https://kouyara.hatenablog.com/',
+      href: 'https://kouya624694.hatenablog.com/',
       icon: <img src="/hatenablog.svg" alt="Hatena Blog" className="h-7" />,
     },
   ];

@@ -44,7 +44,7 @@ export default function About() {
                 <img src="/github.svg" alt="GitHub" className="h-8" />
               </a>
               <a
-                href="https://kouyara.hatenablog.com/"
+                href="https://kouya624694.hatenablog.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-opacity hover:opacity-70"

@@ -146,7 +146,7 @@ export default function Hero() {
               href="#contact"
               className="px-8 py-3 bg-white-custom/80 backdrop-blur-sm dark:bg-gray-800/80 text-white dark:text-white border-2 border-gray-300 dark:border-gray-600 rounded-full font-bold hover-border-primary transition-colors shadow-lg"
             >
-              Get In Touch
+              Contact
             </a>
           </div>
 
