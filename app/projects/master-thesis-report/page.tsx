@@ -1,6 +1,7 @@
 import ProjectDetail, {
   DetailHeading,
   DetailParagraph,
+  DetailList,
 } from '@/app/projects/projectDetail';
 import { projects } from '@/app/projects/projectsData';
 
@@ -18,44 +19,26 @@ export default function MasterThesisReportPage() {
       image={project.image}
       tags={project.tags}
       additionalInfo={
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <div className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter space-y-6">
-            <div>
-              <DetailHeading>研究概要</DetailHeading>
-              <DetailParagraph>
-                3
-                相の疲労状態（ウォームアップ期・持久フェーズ・限界フェーズ）に着目し、筋変位センサの波形から疲労度を推定するモデルを研究中です。長距離走競技者のパフォーマンス維持に貢献することを目指します。
-              </DetailParagraph>
-            </div>
-
-            <div>
-              <DetailHeading>実験方法</DetailHeading>
-              <ul className="text-sm list-disc list-inside space-y-2">
-                <li>
-                  トレッドミル走行中の前腕・下腿にセンサを装着し、心拍やSpO₂と同時計測
-                </li>
-                <li>Python で前処理を行い、疲労フェーズごとの特徴量を抽出</li>
-                <li>PyTorch の時系列モデルで疲労フェーズ分類器を構築</li>
-              </ul>
-            </div>
-
-            <div>
-              <DetailHeading>得られた知見</DetailHeading>
-              <DetailParagraph>
-                疲労の進行に伴いセンサ振幅と周波数帯が段階的に変化することを確認。特に第
-                2 フェーズから第 3
-                フェーズへの遷移では特徴量の変動が顕著で、分類に有効な指標となる見込みです。
-              </DetailParagraph>
-            </div>
-
-            <div>
-              <DetailHeading>今後の課題</DetailHeading>
-              <DetailParagraph>
-                学会査読に向け、被験者層の拡大とモデルの汎化性能向上に取り組んでいます。リアルタイム推定に耐えうる推論パイプラインの構築も次のステップです。
-              </DetailParagraph>
-            </div>
+        <>
+          <div>
+            <DetailHeading>要旨(Abstract)</DetailHeading>
+            <DetailParagraph>
+              本研究では、ランナーの行動変容を支援する新しい疲労フィードバック体験の設計を目的として、光学式筋変位センサ
+              FirstVR
+              を実現手段として活用した。従来の疲労モニタリングは「計測の正確性」に焦点を当ててきたが、本研究では「疲労情報がランナーの意思決定と行動をどのように変容させるか」という
+              HCI
+              的課題を設定し、その設計仮説と評価枠組みを提示した。筋変位センサ
+              FirstVR
+              は光学式センシングにより発汗の影響を受けず、テープ貼付のみで数分で装着可能であり、リアルタイム疲労フィードバックの実装に適する。大学生
+              9
+              名を対象に、トレッドミル漸増走における筋変位・RPE・心拍データの同時計測と機械学習による
+              3 相疲労推定を実施し、個人適応 vs
+              群間汎化の二軸評価を行った。個人内交差検証では筋変位により AUC
+              0.999 を達成し、群間汎化では外部負荷ベースライン(AUC
+              0.862)が優位であった。この知見から、初回使用時は外部負荷による即座の疲労推定を提供し、継続使用で筋変位モデルを個人化する段階的アプローチを提案する。なお、本稿では行動変容の直接的な実験検証は実施しておらず、ユーザインタラクションの効果検証は今後の課題とする。本研究は、疲労情報の可視化とフィードバックがランナーのペース調整や栄養補給タイミングの最適化を促す可能性を示し、パフォーマンス向上と怪我予防への貢献が期待される新しいインタラクション体験の方向性を示す。
+            </DetailParagraph>
           </div>
-        </div>
+        </>
       }
     />
   );

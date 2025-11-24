@@ -51,7 +51,7 @@ export const projects: Project[] = [
     id: 'tanqle-project',
     title: '株式会社タンクル Web制作案件',
     description:
-      '個人委託でwebサイトの制作を担当。クライアントの要望に基づき、レスポンシブデザイン（スマホ対応）とSEO最適化を実施。',
+      '個人委託でwebサイトの制作を担当。クライアントの要望に基づき、レスポンシブデザインを心がけた。',
     tags: ['React', 'Next.js', 'tailwindcss'],
     image: '/no_image.png',
   },

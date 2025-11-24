@@ -7,11 +7,6 @@ export default function Footer() {
       href: 'https://github.com/kouyara',
       icon: <img src="/github.svg" alt="GitHub" className="h-6" />,
     },
-    {
-      name: 'Hatena Blog',
-      href: 'https://kouya624694.hatenablog.com/',
-      icon: <img src="/hatenablog.svg" alt="Hatena Blog" className="h-7" />,
-    },
   ];
 
   return (

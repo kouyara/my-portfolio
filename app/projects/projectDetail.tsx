@@ -1,12 +1,19 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
+interface ProjectLink {
+  label: string;
+  url: string;
+  icon?: 'globe' | 'video' | 'github';
+}
+
 interface ProjectDetailProps {
   title: string;
   description: string;
   image: string;
   tags: string[];
   additionalInfo?: ReactNode;
+  links?: ProjectLink[];
 }
 
 interface DetailHeadingProps {
@@ -60,6 +67,27 @@ const getTagFallbackLabel = (tag: string) => {
   return tag.trim().slice(0, 4).toUpperCase();
 };
 
+const linkIconSrc: Record<NonNullable<ProjectLink['icon']>, string> = {
+  globe: '/globe.svg',
+  video: '/video.svg',
+  github: '/github.svg',
+};
+
+const LinkIcon = ({ type }: { type: ProjectLink['icon'] }) => {
+  if (!type) return null;
+  const src = linkIconSrc[type];
+  if (!src) return null;
+
+  return (
+    <img
+      src={src}
+      alt={`${type} icon`}
+      className="w-4 h-4 object-contain"
+      loading="lazy"
+    />
+  );
+};
+
 export function DetailHeading({
   children,
   className = '',
@@ -86,12 +114,28 @@ export function DetailParagraph({
   );
 }
 
+interface DetailListProps {
+  children: ReactNode;
+  className?: string;
+}
+
+export function DetailList({ children, className = '' }: DetailListProps) {
+  return (
+    <ul
+      className={`text-sm list-disc list-inside space-y-2 ${className}`.trim()}
+    >
+      {children}
+    </ul>
+  );
+}
+
 export default function ProjectDetail({
   title,
   description,
   image,
   tags,
   additionalInfo,
+  links,
 }: ProjectDetailProps) {
   return (
     <main className="min-h-screen bg-white-custom dark:bg-black pt-24 pb-20">
@@ -124,6 +168,22 @@ export default function ProjectDetail({
             <DetailParagraph className="text-gray-600 dark:text-gray-400">
               {description}
             </DetailParagraph>
+            {links && links.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-4">
+                {links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-300 dark:border-gray-700 text-sm font-inter text-gray-800 dark:text-gray-200 hover:border-primary dark:hover:border-primary transition-colors"
+                  >
+                    {link.icon && <LinkIcon type={link.icon} />}
+                    <span>{link.label}</span>
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="rounded-xl overflow-hidden shadow-2xl">
@@ -161,7 +221,13 @@ export default function ProjectDetail({
             })}
           </div>
 
-          {additionalInfo && <div>{additionalInfo}</div>}
+          {additionalInfo && (
+            <div className="prose prose-lg dark:prose-invert max-w-none">
+              <div className="text-gray-700 dark:text-gray-300 leading-relaxed font-inter space-y-6">
+                {additionalInfo}
+              </div>
+            </div>
+          )}
         </article>
       </div>
     </main>
