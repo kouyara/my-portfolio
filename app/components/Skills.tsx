@@ -5,31 +5,36 @@ export default function Skills() {
     {
       title: 'Frontend',
       skills: [
-        { name: 'React', level: 90 },
-        { name: 'Next.js', level: 85 },
-        { name: 'TypeScript', level: 80 },
-        { name: 'Tailwind CSS', level: 90 },
-        { name: 'HTML/CSS', level: 95 },
+        { name: 'TypeScript', icon: 'typescript.svg' },
+        { name: 'JavaScript', icon: 'javascript.svg' },
+        { name: 'Dart', icon: 'dart.svg' },
+        { name: 'React', icon: 'react.svg' },
+        { name: 'Next.js', icon: 'nextjs.svg' },
+        { name: 'Flutter', icon: 'flutter.svg' },
+        { name: 'Tailwind CSS', icon: 'tailwindcss.svg' },
       ],
     },
     {
       title: 'Backend',
       skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Express', level: 80 },
-        { name: 'PostgreSQL', level: 75 },
-        { name: 'MongoDB', level: 70 },
-        { name: 'REST API', level: 85 },
+        { name: 'Python', icon: 'python.svg' },
+        { name: 'Ruby', icon: 'ruby.png' },
+        { name: 'PHP', icon: 'php.svg' },
+        { name: 'Flask', icon: 'flask.svg' },
+        { name: 'FastAPI', icon: 'fastapi.svg' },
+        { name: 'Ruby on Rails', icon: 'rails.svg' },
+        { name: 'PostgreSQL', icon: 'postgresql.png' },
+        { name: 'MySQL', icon: 'mysql.png' },
       ],
     },
     {
       title: 'Tools & Others',
       skills: [
-        { name: 'Git/GitHub', level: 90 },
-        { name: 'Docker', level: 70 },
-        { name: 'AWS', level: 65 },
-        { name: 'Figma', level: 75 },
-        { name: 'Vercel', level: 85 },
+        { name: 'C#', icon: 'csharp.svg' },
+        { name: 'Unity', icon: 'unity.png' },
+        { name: 'Git/GitHub', icon: 'github.svg' },
+        { name: 'Docker', icon: 'docker.svg' },
+        { name: 'nginx', icon: 'nginx.png' },
       ],
     },
   ];
@@ -42,79 +47,38 @@ export default function Skills() {
             Skills & Technologies
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-inter">
-            Technologies and tools I use to bring ideas to life.
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto space-y-12">
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="bg-white-gray dark:bg-gray-900 rounded-xl p-6 space-y-6"
+              className="bg-white-gray dark:bg-gray-900 rounded-xl p-8 space-y-6"
             >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center font-inter-bold">
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <div className="flex flex-wrap justify-center gap-8">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-700 dark:text-gray-300 font-medium font-inter">
-                        {skill.name}
-                      </span>
-                      <span className="text-primary font-semibold">
-                        {skill.level}%
-                      </span>
+                  <div
+                    key={skillIndex}
+                    className="flex flex-col items-center gap-3"
+                  >
+                    <div className="h-16 flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow px-3 py-3">
+                      <img
+                        src={`/${skill.icon}`}
+                        alt={skill.name}
+                        className="h-full w-auto object-contain"
+                      />
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-                      <div
-                        className="h-full rounded-full transition-all duration-1000 ease-out"
-                        style={{
-                          width: `${skill.level}%`,
-                          background:
-                            'linear-gradient(to right, #0077B6, #9333ea)',
-                        }}
-                      ></div>
-                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 font-medium font-inter text-center">
+                      {skill.name}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8 font-inter-bold">
-            Other Technologies
-          </h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            {[
-              'JavaScript',
-              'Python',
-              'GraphQL',
-              'Redux',
-              'Jest',
-              'Webpack',
-              'Sass',
-              'Firebase',
-            ].map((tech, index) => (
-              <div
-                key={index}
-                className="px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 font-medium hover-text-primary transition-colors cursor-default font-inter"
-                style={{ transition: 'all 0.3s' }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor =
-                    'var(--primary-blue-light)')
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = '')
-                }
-              >
-                {tech}
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

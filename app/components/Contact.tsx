@@ -9,16 +9,52 @@ export default function Contact() {
     message: '',
   });
 
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    setStatus('success');
-    setTimeout(() => {
-      setStatus('idle');
-      setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmSend = async () => {
+    setShowConfirmDialog(false);
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setTimeout(() => {
+          setStatus('idle');
+          setFormData({ name: '', email: '', message: '' });
+        }, 3000);
+      } else {
+        setStatus('error');
+        setTimeout(() => {
+          setStatus('idle');
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+      setTimeout(() => {
+        setStatus('idle');
+      }, 5000);
+    }
+  };
+
+  const handleCancelSend = () => {
+    setShowConfirmDialog(false);
   };
 
   const handleChange = (
@@ -35,16 +71,18 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-inter-bold">
-            Get In Touch
+            Contact
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-inter">
-            Have a project in mind or want to collaborate? Feel free to reach
-            out!
+            プロジェクトのご相談や一緒に開発してみたい方は、ぜひお気軽にご連絡ください！
+          </p>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto font-inter">
+            Web制作のお仕事や、技術系のアルバイト依頼などもお受けしています。
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 font-inter-bold">
@@ -74,72 +112,11 @@ export default function Contact() {
                     <h4 className="font-semibold text-gray-900 dark:text-white font-inter-bold">
                       Email
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-400 font-inter">
-                      your.email@example.com
+                    <p className="font-semibold text-gray-600 dark:text-gray-400 text-lg">
+                      kouya624694※gmail.com
                     </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
-                    style={{ backgroundColor: 'var(--primary-blue-light)' }}
-                  >
-                    <svg
-                      className="w-6 h-6 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white font-inter-bold">
-                      Phone
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 font-inter">
-                      +1 (123) 456-7890
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div
-                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
-                    style={{ backgroundColor: 'var(--primary-blue-light)' }}
-                  >
-                    <svg
-                      className="w-6 h-6 text-primary"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white font-inter-bold">
-                      Location
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 font-inter">
-                      Tokyo, Japan
+                    <p className="text-sm text-gray-500 dark:text-gray-500 font-inter mt-1">
+                      ※マークを@マークに変更してお送りください。
                     </p>
                   </div>
                 </div>
@@ -147,7 +124,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white-custom dark:bg-gray-800 rounded-xl shadow-lg p-8">
+          <div className="bg-white-custom dark:bg-gray-800 rounded-xl shadow-lg p-8 mt-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
@@ -226,7 +203,8 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary text-white rounded-lg font-medium bg-primary-hover transition-colors font-inter"
+                disabled={status === 'loading'}
+                className="w-full px-6 py-3 bg-primary text-white rounded-lg font-medium bg-primary-hover transition-colors font-inter disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ boxShadow: 'none' }}
                 onFocus={(e) =>
                   (e.currentTarget.style.boxShadow =
@@ -234,7 +212,7 @@ export default function Contact() {
                 }
                 onBlur={(e) => (e.currentTarget.style.boxShadow = 'none')}
               >
-                Send Message
+                {status === 'loading' ? 'Sending...' : 'Send Message'}
               </button>
 
               {status === 'success' && (
@@ -242,10 +220,73 @@ export default function Contact() {
                   Message sent successfully!
                 </p>
               )}
+              {status === 'error' && (
+                <p className="text-red-600 dark:text-red-400 text-center font-inter">
+                  Failed to send message. Please try again.
+                </p>
+              )}
             </form>
           </div>
         </div>
       </div>
+
+      {showConfirmDialog && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full p-6 animate-fade-in">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 font-inter-bold">
+              送信内容の確認
+            </h3>
+
+            <div className="space-y-4 mb-6">
+              <div>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 font-inter">
+                  お名前
+                </p>
+                <p className="text-gray-900 dark:text-white font-inter">
+                  {formData.name}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 font-inter">
+                  メールアドレス
+                </p>
+                <p className="text-gray-900 dark:text-white font-inter">
+                  {formData.email}
+                </p>
+              </div>
+
+              <div>
+                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 font-inter">
+                  メッセージ
+                </p>
+                <p className="text-gray-900 dark:text-white font-inter whitespace-pre-wrap">
+                  {formData.message}
+                </p>
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 font-inter">
+              この内容で送信してよろしいですか？
+            </p>
+
+            <div className="flex gap-3">
+              <button
+                onClick={handleCancelSend}
+                className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors font-inter"
+              >
+                キャンセル
+              </button>
+              <button
+                onClick={handleConfirmSend}
+                className="flex-1 px-4 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary-hover transition-colors font-inter"
+              >
+                送信する
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

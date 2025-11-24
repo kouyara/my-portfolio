@@ -95,7 +95,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative mt-8 pt-16 overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative mt-16 pt-16 overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
         <Image
