@@ -1,0 +1,56 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          
+          # SSH config setup for ProxyJump
+          cat > ~/.ssh/config << 'CONFIG'
+          Host amane
+            Hostname ${{ secrets.PROXY_HOST }}
+            Port ${{ secrets.PROXY_PORT }}
+            User ${{ secrets.PROXY_USER }}
+            StrictHostKeyChecking no
+          
+          Host react_web
+            Hostname ${{ secrets.SERVER_HOST }}
+            Port 1322
+            User ${{ secrets.SERVER_USER }}
+            ProxyJump amane
+            StrictHostKeyChecking no
+          CONFIG
+
+      - name: Add servers to known hosts
+        run: |
+          ssh-keyscan -p ${{ secrets.PROXY_PORT }} ${{ secrets.PROXY_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -p 1322 ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy files to server
+        run: |
+          rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.github' \
+            -e "ssh" \
+            ./ react_web:/var/www/my-portfolio/
+
+      - name: Install dependencies, build, and restart
+        run: |
+          ssh react_web << 'EOF'
+            cd /var/www/my-portfolio
+            npm ci
+            npm run build
+            pm2 restart my-portfolio
+          EOF
