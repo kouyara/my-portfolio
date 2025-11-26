@@ -13,7 +13,7 @@ export const projects: Project[] = [
     description:
       '現在地から利用可能な店舗を検索し、その店舗で使用できる決済サービスを事前に確認できる機能を備えたwebアプリ',
     tags: ['Flask', 'Python', 'jinja2', 'JavaScript', 'git'],
-    image: '/PayView.png',
+    image: '/payView.png',
   },
   {
     id: '611-game',
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     description:
       'ゲームエンジンソフト「Unity」を使って作成したVRアクションゲーム。舞台は河野研。ゲームの主人公は猫で、敵に捕まる前にカップラーメンを3つ集めて、先生の元へ渡さなければならない、、、',
     tags: ['C#', 'Unity', 'Blender'],
-    image: '/Game611.png',
+    image: '/game611.png',
   },
   {
     id: 'torisan-game',
@@ -29,7 +29,7 @@ export const projects: Project[] = [
     description:
       '学生向けハッカソン「KOZAHACKS」で開発したプロダクト。 スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
     tags: ['C#', 'Unity'],
-    image: '/Torisan_game.png',
+    image: '/torisan_game.png',
   },
   {
     id: 'tap-internship',
