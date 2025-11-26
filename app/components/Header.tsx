@@ -15,69 +15,53 @@ export default function Header() {
   ];
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-gray-200 dark:bg-black/80 dark:border-gray-800"
-      style={{ backgroundColor: 'rgba(248, 244, 236, 0.8)' }}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link
-            href="#home"
-            className="text-2xl font-extrabold underline text-black dark:text-white hover-text-primary transition-colors font-inter-bold"
-          >
-            My-Portfolio
-          </Link>
+    <>
+      <button
+        className="fixed top-6 right-6 z-50 p-3 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-lg"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        aria-label="Toggle menu"
+      >
+        <svg
+          className="w-6 h-6 text-gray-700 dark:text-gray-300"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          {isMenuOpen ? (
+            <path d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
 
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-black dark:text-gray-300 hover-text-primary transition-colors font-extrabold font-inter-bold"
-              >
-                {item.name}
-              </Link>
-            ))}
+      {isMenuOpen && (
+        <>
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          <div className="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 z-40 shadow-2xl transform transition-transform duration-300">
+            <nav className="pt-20 px-6">
+              <div className="space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-4 py-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors font-bold font-inter-bold"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </nav>
           </div>
-
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6 text-gray-700 dark:text-gray-300"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors font-bold font-inter-bold-bold"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-        )}
-      </nav>
-    </header>
+        </>
+      )}
+    </>
   );
 }

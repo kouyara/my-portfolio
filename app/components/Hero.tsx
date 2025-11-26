@@ -1,194 +1,116 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+const images = [
+  { src: '/ocean.jpg', alt: 'Ocean background', location: '沖縄県 北谷町' },
+  { src: '/ocean2.jpg', alt: 'Ocean background 2', location: '沖縄県 西原町' },
+  { src: '/ocean3.jpg', alt: 'Ocean background 3', location: '沖縄県 浦添市' },
+];
 
 export default function Hero() {
-  const [showContent, setShowContent] = useState(false);
-  const [scrollLocked, setScrollLocked] = useState(false);
-  const [accumulatedScroll, setAccumulatedScroll] = useState(0);
-  const [contentLocked, setContentLocked] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const checkInitialPosition = () => {
-      if (window.scrollY < 10) {
-        setScrollLocked(true);
-        setShowContent(false);
-      } else {
-        setScrollLocked(false);
-        setShowContent(true);
-        setContentLocked(false);
-      }
-    };
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000);
 
-    checkInitialPosition();
+    return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const SCROLL_THRESHOLD = 300;
-    const CONTENT_LOCK_THRESHOLD = 500;
+  const handlePrevious = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
 
-    const handleWheel = (e: WheelEvent) => {
-      if (scrollLocked) {
-        e.preventDefault();
-
-        setAccumulatedScroll((prev) => {
-          const newScroll = prev + e.deltaY;
-
-          if (newScroll > SCROLL_THRESHOLD) {
-            setScrollLocked(false);
-            setShowContent(true);
-            setContentLocked(true);
-            return 0;
-          }
-
-          if (newScroll < 0) {
-            return 0;
-          }
-
-          return newScroll;
-        });
-      } else if (contentLocked) {
-        e.preventDefault();
-
-        setAccumulatedScroll((prev) => {
-          const newScroll = prev + e.deltaY;
-
-          if (newScroll > CONTENT_LOCK_THRESHOLD) {
-            setContentLocked(false);
-            return 0;
-          }
-
-          if (newScroll < 0) {
-            setContentLocked(false);
-            return 0;
-          }
-
-          return newScroll;
-        });
-      }
-    };
-
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition < 10 && !scrollLocked && !contentLocked) {
-        setShowContent(false);
-        setScrollLocked(true);
-        setContentLocked(false);
-        setAccumulatedScroll(0);
-      }
-    };
-
-    if (scrollLocked || contentLocked) {
-      window.addEventListener('wheel', handleWheel, { passive: false });
-    }
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrollLocked, contentLocked]);
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative mt-16 pt-16 overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/ocean.jpg"
-          alt="Ocean background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div
-          className={`absolute inset-0 bg-black/30 dark:bg-black/50 transition-opacity duration-700 ${
-            showContent ? 'opacity-100' : 'opacity-0'
-          }`}
-        ></div>
+        {images.map((image, index) => (
+          <Image
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            fill
+            className={`object-cover transition-opacity duration-1000 ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+            priority={index === 0}
+          />
+        ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative z-10">
-        <div
-          className={`space-y-8 transition-all duration-700 ${
-            showContent
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="space-y-4">
-            <p className="text-xl text-white font-medium drop-shadow-lg font-inter">
-              Welcome to
-            </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white drop-shadow-2xl font-inter-bold">
-              Kouya Arakaki&apos;s
-            </h1>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-white drop-shadow-2xl font-inter-bold">
-              Portfolio
-            </h1>
-            <p className="text-2xl sm:text-3xl text-white font-medium drop-shadow-lg font-inter">
-              Software Engineer
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <a
-              href="#projects"
-              className="px-8 py-3 bg-primary text-white rounded-full font-medium bg-primary-hover transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-200"
-            >
-              View My Work
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3 bg-white-custom/80 backdrop-blur-sm dark:bg-gray-800/80 text-white dark:text-white border-2 border-gray-300 dark:border-gray-600 rounded-full font-bold hover-border-primary transition-colors shadow-lg"
-            >
-              Contact
-            </a>
-          </div>
-
-          <div className="pt-12 animate-bounce">
-            <svg
-              className="w-6 h-6 mx-auto text-white drop-shadow-lg"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
+      <div className="absolute bottom-8 left-8 z-10 text-left">
+        <div className="space-y-4 bg-white/20 backdrop-blur-md p-5 rounded-xl">
+          <p className="text-base text-white font-medium font-inter">
+            Welcome to
+          </p>
+          <h1 className="text-4xl font-bold text-white font-inter-bold">
+            Kouya Arakaki&apos;s Portfolio
+          </h1>
+          <p className="text-base text-white font-medium font-inter text-right">
+            Software Engineer
+          </p>
         </div>
-
-        {!showContent && (
-          <div
-            className="absolute bottom-5 left-1/2 transform -translate-x-1/2 animate-bounce"
-            style={{ animationDuration: '2s' }}
-          >
-            <div className="text-white text-center bg-white/10 backdrop-blur-sm px-6 py-3 rounded-3xl">
-              <p className="font-bold text-base mb-2 drop-shadow-lg">
-                Scroll Down
-              </p>
-              <svg
-                className="w-6 h-6 mx-auto drop-shadow-lg"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-            </div>
-          </div>
-        )}
       </div>
+
+      <div className="absolute bottom-8 right-8 z-10">
+        <div className="bg-white/20 backdrop-blur-md p-3 rounded-lg">
+          <p className="text-base text-white/80 font-inter-bold">
+            📍 {images[currentImageIndex].location}
+          </p>
+        </div>
+      </div>
+
+      <button
+        onClick={handlePrevious}
+        className="absolute left-8 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-md hover:bg-white/30 p-3 rounded-full transition-all"
+        aria-label="Previous image"
+      >
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M15 19l-7-7 7-7"
+          />
+        </svg>
+      </button>
+
+      <button
+        onClick={handleNext}
+        className="absolute right-8 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-md hover:bg-white/30 p-3 rounded-full transition-all"
+        aria-label="Next image"
+      >
+        <svg
+          className="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+      </button>
     </section>
   );
 }

@@ -23,14 +23,14 @@ export const projects: Project[] = [
     tags: ['C#', 'Unity', 'Blender'],
     image: '/game611.png',
   },
-  {
-    id: 'torisan-game',
-    title: 'Torisan_game',
-    description:
-      '学生向けハッカソン「KOZAHACKS」で開発したプロダクト。 スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
-    tags: ['C#', 'Unity'],
-    image: '/torisan_game.png',
-  },
+  // {
+  //   id: 'torisan-game',
+  //   title: 'Torisan_game',
+  //   description:
+  //     '学生向けハッカソン「KOZAHACKS」で開発したプロダクト。 スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
+  //   tags: ['C#', 'Unity'],
+  //   image: '/torisan_game.png',
+  // },
   {
     id: 'tap-internship',
     title: '株式会社タップ 長期インターンシップ',
