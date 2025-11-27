@@ -7,6 +7,7 @@ const images = [
   { src: '/ocean.jpg', alt: 'Ocean background', location: '沖縄県 北谷町' },
   { src: '/ocean2.jpg', alt: 'Ocean background 2', location: '沖縄県 西原町' },
   { src: '/ocean3.jpg', alt: 'Ocean background 3', location: '沖縄県 浦添市' },
+  { src: '/ocean4.jpg', alt: 'Ocean background 4', location: '沖縄県 名護市' },
 ];
 
 export default function Hero() {

@@ -23,14 +23,14 @@ export const projects: Project[] = [
     tags: ['C#', 'Unity', 'Blender'],
     image: '/game611.png',
   },
-  // {
-  //   id: 'torisan-game',
-  //   title: 'Torisan_game',
-  //   description:
-  //     '学生向けハッカソン「KOZAHACKS」で開発したプロダクト。 スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
-  //   tags: ['C#', 'Unity'],
-  //   image: '/torisan_game.png',
-  // },
+  {
+    id: 'torisan-game',
+    title: 'Torisan_game',
+    description:
+      '学生向けハッカソン「KOZAHACKS」で開発したプロダクト。 スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
+    tags: ['C#', 'Unity'],
+    image: '/torisan_game.png',
+  },
   {
     id: 'tap-internship',
     title: '株式会社タップ 長期インターンシップ',
@@ -69,13 +69,5 @@ export const projects: Project[] = [
     description: '研究テーマ：「筋変位センサによる持久走時の3相疲労推定」',
     tags: ['Python'],
     image: '/no_image.png',
-  },
-  {
-    id: 'wasm-rust-suika-game',
-    title: 'Rust × WebAssembly スイカゲーム',
-    description:
-      'Rustで実装した物理演算をWebAssemblyにビルドし、ブラウザ上で動くスイカゲームを開発中。Yew + CanvasでUIとゲームロジックを構築中。',
-    tags: ['Rust', 'WebAssembly', 'Yew', 'Canvas'],
-    image: '/suika_rust.png',
   },
 ];
