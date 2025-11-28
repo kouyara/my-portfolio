@@ -20,7 +20,7 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-          # Create SSH config using a heredoc
+          # Create SSH config
           cat > ~/.ssh/config <<'EOF'
 Host amane
   HostName amane.ie.u-ryukyu.ac.jp
@@ -45,4 +45,3 @@ EOF
       - name: Install dependencies and build on remote
         run: |
           ssh -F ~/.ssh/config -o StrictHostKeyChecking=no react_web "cd /var/www/my-portfolio && npm ci && npm run build && pm2 restart my-portfolio"
-
