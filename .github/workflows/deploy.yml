@@ -1,51 +1,38 @@
 name: Deploy to react_web
 
 on:
-	push:
-		branches: [ main ]
+  push:
+    branches: [ main ]
 
 jobs:
-	deploy:
-		runs-on: ubuntu-latest
-		steps:
-			- name: Checkout repository
-				uses: actions/checkout@v4
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-			- name: Prepare SSH for ProxyJump
-				env:
-					SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-				run: |
-					mkdir -p ~/.ssh
-					chmod 700 ~/.ssh
-					echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-					chmod 600 ~/.ssh/id_rsa
+      - name: Prepare SSH for ProxyJump
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
-					# Write minimal SSH config for the jump host and target host
-					cat >> ~/.ssh/config <<'EOF'
-					Host amane
-						HostName amane.ie.u-ryukyu.ac.jp
-						User e215705
-						Port 1322
+          # Create SSH config using printf (avoids leading-space issues)
+          printf '%s
+' 'Host amane' '  HostName amane.ie.u-ryukyu.ac.jp' '  User e215705' '  Port 1322' '' 'Host react_web' '  HostName 10.0.6.56' '  User react_web' '  Port 1322' '  ProxyJump amane' > ~/.ssh/config
+          chmod 600 ~/.ssh/config
 
-					Host react_web
-						HostName 10.0.6.56
-						User react_web
-						Port 1322
-						ProxyJump amane
-					EOF
-					chmod 600 ~/.ssh/config
+          ssh-keyscan -p 1322 amane.ie.u-ryukyu.ac.jp >> ~/.ssh/known_hosts || true
+          ssh-keyscan -p 1322 10.0.6.56 >> ~/.ssh/known_hosts || true
 
-					# Add hosts to known_hosts when possible (best-effort).
-					# If ssh-keyscan cannot reach internal host directly, StrictHostKeyChecking is disabled below.
-					ssh-keyscan -p 1322 amane.ie.u-ryukyu.ac.jp >> ~/.ssh/known_hosts || true
-					ssh-keyscan -p 1322 10.0.6.56 >> ~/.ssh/known_hosts || true
+      - name: Rsync files to remote
+        run: |
+          rsync -avz --delete --exclude 'node_modules' --exclude '.git' -e "ssh -F ~/.ssh/config -o StrictHostKeyChecking=no" ./ react_web:/var/www/my-portfolio/
 
-			- name: Rsync files to remote
-				run: |
-					# Use the SSH config (ProxyJump) when invoking rsync
-					rsync -avz --delete --exclude 'node_modules' --exclude '.git' -e "ssh -F ~/.ssh/config -o StrictHostKeyChecking=no" ./ react_web:/var/www/my-portfolio/
-
-			- name: Install dependencies and build on remote
-				run: |
-					ssh -F ~/.ssh/config -o StrictHostKeyChecking=no react_web "cd /var/www/my-portfolio && npm ci && npm run build && pm2 restart my-portfolio"
+      - name: Install dependencies and build on remote
+        run: |
+          ssh -F ~/.ssh/config -o StrictHostKeyChecking=no react_web "cd /var/www/my-portfolio && npm ci && npm run build && pm2 restart my-portfolio"
 
