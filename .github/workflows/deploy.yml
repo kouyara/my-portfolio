@@ -1,90 +1,53 @@
-name: Deploy to Production
+name: Deploy to Server
 
 on:
   push:
-    branches:
-      - main
-
-env:
-  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Debug information
-        run: |
-          echo "Current working directory: $(pwd)"
-          echo "Files in current directory:"
-          ls -la
-          echo "Network connectivity test:"
-          ping -c 3 8.8.8.8 || echo "Network connectivity might be limited"
-
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          # 秘密鍵を正しい形式で保存（改行文字を適切に処理）
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.9.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        
+    - name: Add SSH host keys
+      run: |
+        mkdir -p ~/.ssh
+        ssh-keyscan -H amane >> ~/.ssh/known_hosts
+        ssh-keyscan -H 10.0.6.56 >> ~/.ssh/known_hosts
+        
+    - name: Configure SSH for ProxyJump
+      run: |
+        cat >> ~/.ssh/config << 'EOF'
+        Host amane
+          HostName amane
+          User react_web
+          StrictHostKeyChecking no
           
-          # SSH config setup for ProxyJump
-          cat > ~/.ssh/config << 'CONFIG'
-          Host amane
-            Hostname ${{ secrets.PROXY_HOST }}
-            Port ${{ secrets.PROXY_PORT }}
-            User ${{ secrets.PROXY_USER }}
-            StrictHostKeyChecking no
-            UserKnownHostsFile /dev/null
-          
-          Host react_web
-            Hostname ${{ secrets.SERVER_HOST }}
-            Port 1322
-            User ${{ secrets.SERVER_USER }}
-            ProxyJump amane
-            StrictHostKeyChecking no
-            UserKnownHostsFile /dev/null
-          CONFIG
-
-      - name: Test SSH connection
-        run: |
-          # SSH接続をテスト
-          ssh -o ConnectTimeout=30 -o ConnectionAttempts=3 amane "echo 'Proxy connection successful'"
-          ssh -o ConnectTimeout=30 -o ConnectionAttempts=3 react_web "echo 'Target server connection successful'"
-
-      - name: Add servers to known hosts (if needed)
-        run: |
-          # StrictHostKeyChecking=noを使用しているため、このステップは省略可能
-          # しかし、より安全にするために実行
-          timeout 10 ssh-keyscan -p ${{ secrets.PROXY_PORT }} ${{ secrets.PROXY_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || echo "Could not add proxy to known hosts"
-          timeout 10 ssh-keyscan -p 1322 ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || echo "Could not add server to known hosts"
-
-      - name: Deploy files to server
-        run: |
-          # rsyncのオプションを調整し、SSH接続を改善
-          rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.github' \
-            --exclude '.next' --exclude 'node_modules' \
-            -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=30" \
-            --progress \
-            ./ react_web:/var/www/my-portfolio/
-
-      - name: Install dependencies, build, and restart
-        run: |
-          ssh -o ConnectTimeout=30 -o StrictHostKeyChecking=no react_web << 'EOF'
-            cd /var/www/my-portfolio
-            # Node.jsのバージョンを確認
-            node --version
-            npm --version
-            
-            # 依存関係をインストール
-            npm ci --production=false
-            
-            # ビルド実行
-            npm run build
-            
-            # PM2でアプリケーションを再起動
-            pm2 restart my-portfolio || pm2 start npm --name "my-portfolio" -- start
-          EOF
+        Host react_web
+          HostName 10.0.6.56
+          Port 1322
+          User react_web
+          ProxyJump amane
+          StrictHostKeyChecking no
+        EOF
+        
+    - name: Deploy to server
+      run: |
+        rsync -avz --exclude 'node_modules' --exclude '.git' ./ react_web:/var/www/my-portfolio/
+        
+    - name: Install dependencies and build
+      run: |
+        ssh react_web << 'EOF'
+        cd /var/www/my-portfolio
+        npm ci
+        npm run build
+        pm2 restart my-portfolio
+        EOF
