@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   tags: string[];
   image: string;
+  date: string; // YYYY-MM format
 }
 
 export const projects: Project[] = [
@@ -14,6 +15,7 @@ export const projects: Project[] = [
       '現在地から利用可能な店舗を検索し、その店舗で使用できる決済サービスを事前に確認できる機能を備えたwebアプリ',
     tags: ['Flask', 'Python', 'jinja2', 'JavaScript', 'git'],
     image: '/payView.png',
+    date: '2024-02',
   },
   {
     id: '611-game',
@@ -22,14 +24,16 @@ export const projects: Project[] = [
       'ゲームエンジンソフト「Unity」を使って作成したVRアクションゲーム。舞台は河野研。ゲームの主人公は猫で、敵に捕まる前にカップラーメンを3つ集めて、先生の元へ渡さなければならない、、、',
     tags: ['C#', 'Unity', 'Blender'],
     image: '/game611.png',
+    date: '2024-02',
   },
   {
     id: 'torisan-game',
     title: 'Torisan_game',
     description:
-      '学生向けハッカソン「KOZAHACKS」で開発したプロダクト。 スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
+      'スイカゲームをUnityで再現しようと思い、模倣して作成した。 UnityのWebGL機能を使用し、Webアプリとしてビルドしている。',
     tags: ['C#', 'Unity'],
     image: '/torisan_game.png',
+    date: '2024-10',
   },
   {
     id: 'tap-internship',
@@ -38,6 +42,7 @@ export const projects: Project[] = [
       'ホテル口コミサイトのスクレイピングシステム開発（Python, BeautifulSoup）や、Flutterによる社内アプリのリファクタリング、YOLOを用いた客室点検アプリの自動化など、多様な案件に携わった。',
     tags: ['Python', 'Dart', 'FastAPI', 'Flutter', 'Docker'],
     image: '/no_image.png',
+    date: '2025-10',
   },
   {
     id: 'freee-internship',
@@ -46,6 +51,7 @@ export const projects: Project[] = [
       'プロダクトのadmin UIの修正やE2Eテストの調査、AI活用の企画などに携わった',
     tags: ['Ruby', 'Ruby on Rails', 'Docker'],
     image: '/freee.jpg',
+    date: '2025-09',
   },
   {
     id: 'tanqle-project',
@@ -54,6 +60,7 @@ export const projects: Project[] = [
       '個人委託でwebサイトの制作を担当。クライアントの要望に基づき、レスポンシブデザインを心がけた。',
     tags: ['React', 'Next.js', 'tailwindcss'],
     image: '/no_image.png',
+    date: '2025-11',
   },
   {
     id: 'bachelor-thesis-report',
@@ -62,6 +69,7 @@ export const projects: Project[] = [
       '研究テーマ：「筋変位センサを用いた握力推定モデルの精度向上に関する研究」',
     tags: ['Python', 'C#'],
     image: '/bachelor_sThesis_Report.png',
+    date: '2025-03',
   },
   {
     id: 'master-thesis-report',
@@ -69,5 +77,6 @@ export const projects: Project[] = [
     description: '研究テーマ：「筋変位センサによる持久走時の3相疲労推定」',
     tags: ['Python'],
     image: '/no_image.png',
+    date: '2025-11',
   },
 ];

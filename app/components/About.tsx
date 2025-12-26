@@ -13,8 +13,8 @@ export default function About() {
           <div className="flex justify-center">
             <div className="w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/Profile.jpg"
-                alt="Profile"
+                src="/profile.jpg"
+                alt="profile"
                 className="w-full h-full object-cover"
               />
             </div>
