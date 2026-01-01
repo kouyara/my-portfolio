@@ -42,7 +42,7 @@ export const projects: Project[] = [
       'ホテル口コミサイトのスクレイピングシステム開発（Python, BeautifulSoup）や、Flutterによる社内アプリのリファクタリング、YOLOを用いた客室点検アプリの自動化など、多様な案件に携わった。',
     tags: ['Python', 'Dart', 'FastAPI', 'Flutter', 'Docker'],
     image: '/no_image.png',
-    date: '2025-10',
+    date: '2025-9',
   },
   {
     id: 'freee-internship',
@@ -60,7 +60,7 @@ export const projects: Project[] = [
       '個人委託でwebサイトの制作を担当。クライアントの要望に基づき、レスポンシブデザインを心がけた。',
     tags: ['React', 'Next.js', 'tailwindcss'],
     image: '/no_image.png',
-    date: '2025-11',
+    date: '2025-9',
   },
   {
     id: 'bachelor-thesis-report',
@@ -78,5 +78,14 @@ export const projects: Project[] = [
     tags: ['Python'],
     image: '/no_image.png',
     date: '2025-11',
+  },
+  {
+    id: 'bullet-hell',
+    title: 'Bullet Hell',
+    description:
+      'Rustで開発したシューティングゲーム。システム言語としてのRustの性能と安全性を活かし、高速なゲーム処理を実現。',
+    tags: ['Rust', 'ggez'],
+    image: '/no_image.png',
+    date: '2025-12',
   },
 ];

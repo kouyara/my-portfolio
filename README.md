@@ -59,13 +59,19 @@ rsync -avz --delete \
   --exclude 'node_modules' \
   --exclude '.git' \
   /Users/kouya/coding/my-portfolio/ \
-  react_web:/var/www/my-portfolio/
+  react_web_syskan:/var/www/my-portfolio/
 ```
 
 本番環境でビルド＆再起動
 
 ```bash
-ssh react_web "cd /var/www/my-portfolio && npm ci && npm run build && pm2 restart my-portfolio"
+ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2 restart my-portfolio"
+```
+
+本番環境初期の起動
+
+```bash
+ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2 start npm --name "my-portfolio" -- start"
 ```
 
 ## リンターフォーマッターの実行
