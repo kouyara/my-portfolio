@@ -2,8 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'my-portfolio',
-      script: 'npm',
-      args: 'start',
+      script: '.next/standalone/server.js',
       cwd: '/var/www/my-portfolio',
       instances: 1,
       autorestart: true,

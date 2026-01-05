@@ -51,11 +51,12 @@ const tagIconMap: Record<string, string> = {
   blender: '/blender.svg',
   'c#': '/csharp.svg',
   git: '/github.svg',
-  rust: '/rust.svg',
+  rust: '/rust.png',
   webassembly: '/webassembly.svg',
   wasm: '/webassembly.svg',
   yew: '/yew.svg',
   canvas: '/canvas.svg',
+  redis: '/redis.svg',
 };
 
 const getTagIcon = (tag: string) => {

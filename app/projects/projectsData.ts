@@ -83,9 +83,18 @@ export const projects: Project[] = [
     id: 'bullet-hell',
     title: 'Bullet Hell',
     description:
-      'Rustで開発したシューティングゲーム。システム言語としてのRustの性能と安全性を活かし、高速なゲーム処理を実現。',
-    tags: ['Rust', 'ggez'],
-    image: '/no_image.png',
+      'Rust、WebAssembly、Axumで実装した弾幕を回避するブラウザゲーム。',
+    tags: [
+      'Rust',
+      'WebAssembly',
+      'Axum',
+      'JavaScript',
+      'PostgreSQL',
+      'Redis',
+      'Docker',
+      'Nginx',
+    ],
+    image: '/bullet_hell.png',
     date: '2025-12',
   },
 ];

@@ -35,7 +35,7 @@ pm2 ls
 VMでNode.jsアプリケーションを起動：
 
 ```bash
-pm2 start npm --name my-portfolio -- start
+pm2 start node --name my-portfolio -- .next/standalone/server.js
 ```
 
 アプリケーションの再起動
@@ -71,7 +71,7 @@ ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2
 本番環境初期の起動
 
 ```bash
-ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2 start npm --name "my-portfolio" -- start"
+ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2 start ecosystem.config.js"
 ```
 
 ## リンターフォーマッターの実行
