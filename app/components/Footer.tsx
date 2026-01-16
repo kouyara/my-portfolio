@@ -1,3 +1,5 @@
+import { basePath } from '@/app/lib/assetPath';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -5,7 +7,7 @@ export default function Footer() {
     {
       name: 'GitHub',
       href: 'https://github.com/kouyara',
-      icon: <img src="/github.svg" alt="GitHub" className="h-6" />,
+      icon: <img src={basePath('/github.svg')} alt="GitHub" className="h-6" />,
     },
   ];
 

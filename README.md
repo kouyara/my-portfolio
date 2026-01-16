@@ -52,6 +52,12 @@ pm2 logs my-portfolio
 
 ## デプロイ手順
 
+ローカルでビルド
+
+```bash
+npm run build
+```
+
 本番環境へのデプロイ
 
 ```bash
@@ -59,19 +65,23 @@ rsync -avz --delete \
   --exclude 'node_modules' \
   --exclude '.git' \
   /Users/kouya/coding/my-portfolio/ \
-  react_web_syskan:/var/www/my-portfolio/
+  kouyara:/opt/my-portfolio/
+
+rsync -avz \
+  /Users/kouya/coding/my-portfolio/ecosystem.config.js \
+  kouyara:/opt/my-portfolio/
 ```
 
-本番環境でビルド＆再起動
+本番環境で再起動
 
 ```bash
-ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2 restart my-portfolio"
+ssh kouyara "cd /opt/my-portfolio && npm install && npm run build && pm2 restart my-portfolio"
 ```
 
 本番環境初期の起動
 
 ```bash
-ssh react_web_syskan "cd /var/www/my-portfolio && npm ci && npm run build && pm2 start ecosystem.config.js"
+ssh kouyara "cd /opt/my-portfolio && npm install && npm run build && pm2 start ecosystem.config.js"
 ```
 
 ## リンターフォーマッターの実行

@@ -1,3 +1,5 @@
+import { basePath } from '@/app/lib/assetPath';
+
 export default function About() {
   return (
     <section id="about" className="py-20 bg-white-custom dark:bg-black">
@@ -13,7 +15,7 @@ export default function About() {
           <div className="flex justify-center">
             <div className="w-full max-w-md aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/profile.jpg"
+                src={basePath('/Profile.jpg')}
                 alt="profile"
                 className="w-full h-full object-cover"
               />
@@ -41,7 +43,11 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="transition-opacity hover:opacity-70"
               >
-                <img src="/github.svg" alt="GitHub" className="h-8" />
+                <img
+                  src={basePath('/github.svg')}
+                  alt="GitHub"
+                  className="h-8"
+                />
               </a>
               <a
                 href="https://kouya624694.hatenablog.com/"
@@ -49,7 +55,11 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="transition-opacity hover:opacity-70"
               >
-                <img src="/hatenablog.svg" alt="Hatena Blog" className="h-9" />
+                <img
+                  src={basePath('/hatenablog.svg')}
+                  alt="Hatena Blog"
+                  className="h-9"
+                />
               </a>
             </div>
           </div>

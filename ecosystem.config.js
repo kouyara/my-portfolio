@@ -3,7 +3,7 @@ module.exports = {
     {
       name: 'my-portfolio',
       script: '.next/standalone/server.js',
-      cwd: '/var/www/my-portfolio',
+      cwd: '/opt/my-portfolio',
       instances: 1,
       autorestart: true,
       watch: false,

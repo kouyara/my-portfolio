@@ -1,5 +1,7 @@
 'use client';
 
+import { basePath } from '@/app/lib/assetPath';
+
 export default function Skills() {
   const skillCategories = [
     {
@@ -66,7 +68,7 @@ export default function Skills() {
                   >
                     <div className="h-16 flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow px-3 py-3">
                       <img
-                        src={`/${skill.icon}`}
+                        src={basePath(`/${skill.icon}`)}
                         alt={skill.name}
                         className="h-full w-auto object-contain"
                       />

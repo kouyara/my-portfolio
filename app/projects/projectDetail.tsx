@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { basePath } from '@/app/lib/assetPath';
 
 interface ProjectLink {
   label: string;
@@ -27,36 +28,36 @@ interface DetailParagraphProps {
 }
 
 const tagIconMap: Record<string, string> = {
-  python: '/python.svg',
-  javascript: '/javascript.svg',
-  typescript: '/typescript.svg',
-  dart: '/dart.svg',
-  react: '/react.svg',
-  'next.js': '/nextjs.svg',
-  nextjs: '/nextjs.svg',
-  flutter: '/flutter.svg',
-  'tailwind css': '/tailwindcss.svg',
-  tailwindcss: '/tailwindcss.svg',
-  flask: '/flask.svg',
-  fastapi: '/fastapi.svg',
-  ruby: '/ruby.png',
-  'ruby on rails': '/rails.svg',
-  php: '/php.svg',
-  jinja2: '/jinja2.svg',
-  postgresql: '/postgresql.png',
-  mysql: '/mysql.png',
-  docker: '/docker.svg',
-  nginx: '/nginx.png',
-  unity: '/unity.png',
-  blender: '/blender.svg',
-  'c#': '/csharp.svg',
-  git: '/github.svg',
-  rust: '/rust.png',
-  webassembly: '/webassembly.svg',
-  wasm: '/webassembly.svg',
-  yew: '/yew.svg',
-  canvas: '/canvas.svg',
-  redis: '/redis.svg',
+  python: basePath('/python.svg'),
+  javascript: basePath('/javascript.svg'),
+  typescript: basePath('/typescript.svg'),
+  dart: basePath('/dart.svg'),
+  react: basePath('/react.svg'),
+  'next.js': basePath('/nextjs.svg'),
+  nextjs: basePath('/nextjs.svg'),
+  flutter: basePath('/flutter.svg'),
+  'tailwind css': basePath('/tailwindcss.svg'),
+  tailwindcss: basePath('/tailwindcss.svg'),
+  flask: basePath('/flask.svg'),
+  fastapi: basePath('/fastapi.svg'),
+  ruby: basePath('/ruby.png'),
+  'ruby on rails': basePath('/rails.svg'),
+  php: basePath('/php.svg'),
+  jinja2: basePath('/jinja2.svg'),
+  postgresql: basePath('/postgresql.png'),
+  mysql: basePath('/mysql.png'),
+  docker: basePath('/docker.svg'),
+  nginx: basePath('/nginx.png'),
+  unity: basePath('/unity.png'),
+  blender: basePath('/blender.svg'),
+  'c#': basePath('/csharp.svg'),
+  git: basePath('/github.svg'),
+  rust: basePath('/rust.png'),
+  webassembly: basePath('/webassembly.svg'),
+  wasm: basePath('/webassembly.svg'),
+  yew: basePath('/yew.svg'),
+  canvas: basePath('/canvas.svg'),
+  redis: basePath('/redis.svg'),
 };
 
 const getTagIcon = (tag: string) => {
@@ -69,9 +70,9 @@ const getTagFallbackLabel = (tag: string) => {
 };
 
 const linkIconSrc: Record<NonNullable<ProjectLink['icon']>, string> = {
-  globe: '/globe.svg',
-  video: '/video.svg',
-  github: '/github.svg',
+  globe: basePath('/globe.svg'),
+  video: basePath('/video.svg'),
+  github: basePath('/github.svg'),
 };
 
 const LinkIcon = ({ type }: { type: ProjectLink['icon'] }) => {
@@ -188,7 +189,7 @@ export default function ProjectDetail({
           </div>
 
           <div className="rounded-xl overflow-hidden shadow-2xl">
-            <img src={image} alt={title} className="w-full h-auto" />
+            <img src={basePath(image)} alt={title} className="w-full h-auto" />
           </div>
 
           <div className="flex flex-wrap gap-6">

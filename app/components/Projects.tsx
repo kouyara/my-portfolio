@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { projects } from '@/app/projects/projectsData';
+import { basePath } from '@/app/lib/assetPath';
 
 type SortOrder = 'newest' | 'oldest';
 
@@ -58,12 +59,12 @@ export default function Projects() {
           {sortedProjects.map((project, index) => (
             <a
               key={index}
-              href={`/projects/${project.id}`}
+              href={basePath(`/projects/${project.id}`)}
               className="bg-white-custom dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 group block cursor-pointer"
             >
               <div className="h-60 overflow-hidden">
                 <img
-                  src={project.image}
+                  src={basePath(project.image)}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
