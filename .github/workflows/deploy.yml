@@ -27,6 +27,7 @@ jobs:
       - name: Build
         env:
           NEXT_TELEMETRY_DISABLED: 1
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
         run: npm run build
 
       - name: Add SSH key
