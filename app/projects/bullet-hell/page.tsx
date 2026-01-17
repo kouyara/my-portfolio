@@ -21,7 +21,7 @@ export default function BulletHellPage() {
       links={[
         {
           label: 'Play',
-          url: 'https://kouya.st.ie.u-ryukyu.ac.jp/bullet-hell/',
+          url: 'https://kouyara.com/bullet-hell/',
           icon: 'globe',
         },
         {

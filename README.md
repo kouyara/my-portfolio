@@ -66,10 +66,6 @@ rsync -avz --delete \
   --exclude '.git' \
   /Users/kouya/coding/my-portfolio/ \
   kouyara:/opt/my-portfolio/
-
-rsync -avz \
-  /Users/kouya/coding/my-portfolio/ecosystem.config.js \
-  kouyara:/opt/my-portfolio/
 ```
 
 本番環境で再起動
