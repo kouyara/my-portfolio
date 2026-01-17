@@ -30,6 +30,7 @@ const images = [
 
 export default function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,6 +38,14 @@ export default function Hero() {
     }, 4000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInitialLoad(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const handlePrevious = () => {
@@ -73,15 +82,30 @@ export default function Hero() {
               fill
               className={`object-contain md:object-cover transition-opacity duration-1000 ${
                 index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-              }`}
+              } ${isInitialLoad ? 'brightness-80' : ''}`}
               priority={index === 0}
             />
           </React.Fragment>
         ))}
       </div>
 
-      <div className="absolute top-3 left-3 md:top-auto md:bottom-8 z-10 text-left">
-        <div className="space-y-1 md:space-y-4 bg-white/20 backdrop-blur-md p-5 rounded-xl">
+      <div
+        className={`absolute z-10 transition-all duration-1000 ${
+          isInitialLoad
+            ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center'
+            : `
+                top-3
+                left-3
+                translate-x-0
+                translate-y-0
+                md:-translate-y-23
+                text-left
+                md:top-[calc(100%-6rem)]
+                md:left-8
+              `
+        }`}
+      >
+        <div className="space-y-1 md:space-y-4 bg-white/20 backdrop-blur-md p-5 rounded-4xl w-75">
           <p className="text-sm md:text-base text-white font-medium font-inter">
             Welcome to
           </p>
@@ -94,8 +118,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-3 right-3 md:bottom-8 md:right-8 z-10">
-        <div className="bg-white/20 backdrop-blur-md p-3 rounded-lg">
+      <div className="absolute bottom-3 right-3 md:bottom-8 md:right-8 z-5">
+        <div className="bg-white/20 backdrop-blur-md p-3 rounded-2xl">
           <p className="text-sm md:text-base text-white/80 font-inter-bold">
             📍 {images[currentImageIndex].location}
           </p>
@@ -104,7 +128,7 @@ export default function Hero() {
 
       <button
         onClick={handlePrevious}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-md hover:bg-white/30 p-3 rounded-full transition-all"
+        className="absolute left-8 top-1/2 -translate-y-1/2 z-5 bg-white/20 backdrop-blur-md hover:bg-white/30 p-3 rounded-full transition-all"
         aria-label="Previous image"
       >
         <svg
@@ -124,7 +148,7 @@ export default function Hero() {
 
       <button
         onClick={handleNext}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-10 bg-white/20 backdrop-blur-md hover:bg-white/30 p-3 rounded-full transition-all"
+        className="absolute right-8 top-1/2 -translate-y-1/2 z-5 bg-white/20 backdrop-blur-md hover:bg-white/30 p-3 rounded-full transition-all"
         aria-label="Next image"
       >
         <svg
