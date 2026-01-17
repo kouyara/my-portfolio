@@ -64,6 +64,8 @@ npm run build
 rsync -avz --delete \
   --exclude 'node_modules' \
   --exclude '.git' \
+  --exclude '.env' \
+  --exclude '.next' \
   /Users/kouya/coding/my-portfolio/ \
   kouyara:/opt/my-portfolio/
 ```
