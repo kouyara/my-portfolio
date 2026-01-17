@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <>
       <button
-        className="fixed top-6 right-6 z-50 p-3 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-lg"
+        className="fixed top-5 right-3 md:top-6 md:right-6 z-50 p-3 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800 transition-colors shadow-lg"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label="Toggle menu"
       >

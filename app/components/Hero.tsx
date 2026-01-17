@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { basePath } from '@/app/lib/assetPath';
@@ -55,36 +56,47 @@ export default function Hero() {
     >
       <div className="absolute inset-0 z-0">
         {images.map((image, index) => (
-          <Image
-            key={image.src}
-            src={image.src}
-            alt={image.alt}
-            fill
-            className={`object-cover transition-opacity duration-1000 ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
-            priority={index === 0}
-          />
+          <React.Fragment key={index}>
+            <Image
+              key={`${image.src}-blur`}
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={`hidden md:block object-cover transition-opacity duration-1000 filter blur-xl ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            />
+            <Image
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
+              fill
+              className={`object-contain md:object-cover transition-opacity duration-1000 ${
+                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+              priority={index === 0}
+            />
+          </React.Fragment>
         ))}
       </div>
 
-      <div className="absolute bottom-8 left-8 z-10 text-left">
-        <div className="space-y-4 bg-white/20 backdrop-blur-md p-5 rounded-xl">
-          <p className="text-base text-white font-medium font-inter">
+      <div className="absolute top-3 left-3 md:top-auto md:bottom-8 z-10 text-left">
+        <div className="space-y-1 md:space-y-4 bg-white/20 backdrop-blur-md p-5 rounded-xl">
+          <p className="text-sm md:text-base text-white font-medium font-inter">
             Welcome to
           </p>
-          <h1 className="text-4xl font-bold text-white font-inter-bold">
+          <h1 className="text-xl md:text-4xl font-bold text-white font-inter-bold">
             Kouya Arakaki&apos;s Portfolio
           </h1>
-          <p className="text-base text-white font-medium font-inter text-right">
+          <p className="text-sm md:text-base text-white font-medium font-inter text-right">
             Software Engineer
           </p>
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8 z-10">
+      <div className="absolute bottom-3 right-3 md:bottom-8 md:right-8 z-10">
         <div className="bg-white/20 backdrop-blur-md p-3 rounded-lg">
-          <p className="text-base text-white/80 font-inter-bold">
+          <p className="text-sm md:text-base text-white/80 font-inter-bold">
             📍 {images[currentImageIndex].location}
           </p>
         </div>

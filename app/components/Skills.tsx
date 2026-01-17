@@ -22,11 +22,14 @@ export default function Skills() {
         { name: 'Python', icon: 'python.svg' },
         { name: 'Ruby', icon: 'ruby.png' },
         { name: 'PHP', icon: 'php.svg' },
+        { name: 'Rust', icon: 'rust.png' },
         { name: 'Flask', icon: 'flask.svg' },
         { name: 'FastAPI', icon: 'fastapi.svg' },
+        { name: 'AXUM' },
         { name: 'Ruby on Rails', icon: 'rails.svg' },
         { name: 'PostgreSQL', icon: 'postgresql.png' },
         { name: 'MySQL', icon: 'mysql.png' },
+        { name: 'Redis', icon: 'redis.svg' },
       ],
     },
     {
@@ -34,6 +37,7 @@ export default function Skills() {
       skills: [
         { name: 'C#', icon: 'csharp.svg' },
         { name: 'Unity', icon: 'unity.png' },
+        { name: 'WebAssembly', icon: 'webassembly.svg' },
         { name: 'Git/GitHub', icon: 'github.svg' },
         { name: 'Docker', icon: 'docker.svg' },
         { name: 'nginx', icon: 'nginx.png' },
@@ -45,7 +49,7 @@ export default function Skills() {
     <section id="skills" className="py-20 bg-white-custom dark:bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 font-inter-bold">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-inter-bold">
             Skills & Technologies
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-4"></div>
@@ -60,20 +64,28 @@ export default function Skills() {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center font-inter-bold">
                 {category.title}
               </h3>
-              <div className="flex flex-wrap justify-center gap-8">
+              <div className="flex flex-wrap justify-center gap-5 md:gap-8">
                 {category.skills.map((skill, skillIndex) => (
                   <div
                     key={skillIndex}
-                    className="flex flex-col items-center gap-3"
+                    className="flex flex-col items-center gap-1 md:gap-3"
                   >
-                    <div className="h-16 flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow px-3 py-3">
-                      <img
-                        src={basePath(`/${skill.icon}`)}
-                        alt={skill.name}
-                        className="h-full w-auto object-contain"
-                      />
-                    </div>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium font-inter text-center">
+                    {skill.icon ? (
+                      <div className="h-12 md:h-16 flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow px-3 py-3">
+                        <img
+                          src={basePath(`/${skill.icon}`)}
+                          alt={skill.name}
+                          className="h-full w-auto object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-12 md:h-16 flex items-center justify-center bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow px-3 py-3">
+                        <span className="text-xs md:text-sm text-gray-900 dark:text-white text-center">
+                          {skill.name}
+                        </span>
+                      </div>
+                    )}
+                    <span className="text-sm text-gray-700 dark:text-gray-300 text-center">
                       {skill.name}
                     </span>
                   </div>
