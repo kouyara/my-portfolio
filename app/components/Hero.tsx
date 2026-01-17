@@ -62,7 +62,7 @@ export default function Hero() {
               src={image.src}
               alt={image.alt}
               fill
-              className={`hidden md:block object-cover transition-opacity duration-1000 filter blur-xl ${
+              className={`object-cover transition-opacity duration-1000 filter blur-xl md:hidden ${
                 index === currentImageIndex ? 'opacity-100' : 'opacity-0'
               }`}
             />
